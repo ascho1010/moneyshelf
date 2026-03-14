@@ -53,7 +53,7 @@ export default function HomePage() {
             View all →
           </Link>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {featuredBooks.map((book) => (
             <BookCard key={book.slug} book={book} />
           ))}

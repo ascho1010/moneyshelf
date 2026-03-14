@@ -86,26 +86,6 @@ export const books: Book[] = [
     rating: 4,
   },
   {
-    slug: "rich-dad-poor-dad",
-    title: "Rich Dad Poor Dad",
-    author: "Robert Kiyosaki",
-    category: "Real Estate",
-    description:
-      "The classic that changed how millions think about money. Kiyosaki contrasts his two father figures to explain why the rich don't work for money — they make money work for them.",
-    keyTakeaways: [
-      "Assets put money in your pocket; liabilities take it out",
-      "Your house is not an asset in the traditional sense",
-      "Financial education is more valuable than formal education",
-      "The rich acquire assets; the poor acquire liabilities",
-      "Mind your own business — build your asset column",
-    ],
-    amazonUrl: `https://www.amazon.com/Rich-Dad-Poor-Teach-Middle/dp/1612680194?tag=${AFFILIATE_TAG}`,
-    coverImage: "/books/rich-dad-poor-dad.jpg",
-    coverColor: "#3a1a1a",
-    featured: false,
-    rating: 4,
-  },
-  {
     slug: "little-book-common-sense-investing",
     title: "The Little Book of Common Sense Investing",
     author: "John C. Bogle",

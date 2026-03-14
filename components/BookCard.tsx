@@ -37,26 +37,34 @@ export default function BookCard({ book, variant = "default" }: BookCardProps) {
   return (
     <Link
       href={`/books/${book.slug}`}
-      className="group block bg-card border border-border rounded-lg overflow-hidden hover:border-accent/40 transition-colors"
+      className="group flex gap-5 bg-card border border-border rounded-lg overflow-hidden hover:border-accent/40 transition-colors p-4"
     >
-      <div className="h-56 w-full relative overflow-hidden" style={{ backgroundColor: book.coverColor }}>
+      {/* Portrait cover — left */}
+      <div
+        className="flex-shrink-0 w-24 relative rounded overflow-hidden"
+        style={{ backgroundColor: book.coverColor, aspectRatio: "2/3" }}
+      >
         <Image
           src={book.coverImage}
           alt={book.title}
           fill
           className="object-cover group-hover:scale-105 transition-transform duration-300"
-          sizes="(max-width: 768px) 100vw, 33vw"
+          sizes="96px"
         />
       </div>
-      <div className="p-5">
-        <span className={`inline-block text-xs px-2 py-0.5 rounded-full mb-3 ${categoryClass}`}>
-          {book.category}
-        </span>
-        <h3 className="font-serif text-lg font-bold text-foreground group-hover:text-accent transition-colors leading-tight mb-1">
-          {book.title}
-        </h3>
-        <p className="text-sm text-muted-foreground mb-3">{book.author}</p>
-        <p className="text-sm text-muted-foreground line-clamp-3">{book.description}</p>
+
+      {/* Text — right */}
+      <div className="flex flex-col justify-between py-1 min-w-0">
+        <div>
+          <span className={`inline-block text-xs px-2 py-0.5 rounded-full mb-2 ${categoryClass}`}>
+            {book.category}
+          </span>
+          <h3 className="font-serif text-lg font-bold text-foreground group-hover:text-accent transition-colors leading-tight mb-1">
+            {book.title}
+          </h3>
+          <p className="text-sm text-muted-foreground mb-2">{book.author}</p>
+          <p className="text-sm text-muted-foreground line-clamp-3 leading-relaxed">{book.description}</p>
+        </div>
         <div className="flex items-center gap-1 mt-3">
           {Array.from({ length: 5 }).map((_, i) => (
             <span key={i} className={`text-xs ${i < book.rating ? "text-accent" : "text-muted"}`}>★</span>
