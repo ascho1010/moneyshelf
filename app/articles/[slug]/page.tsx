@@ -1,5 +1,6 @@
 import { articles, getArticle, getBooksForArticle } from "@/lib/data";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
@@ -51,10 +52,10 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
               {books.map((book) => (
                 <div key={book.slug} className="border border-border rounded-lg p-4">
                   <div
-                    className="w-12 h-16 rounded mb-3 flex items-center justify-center text-xl"
+                    className="w-12 h-16 rounded mb-3 relative overflow-hidden"
                     style={{ backgroundColor: book.coverColor }}
                   >
-                    📖
+                    <Image src={book.coverImage} alt={book.title} fill className="object-cover" sizes="48px" />
                   </div>
                   <Link href={`/books/${book.slug}`} className="font-serif text-base font-bold text-foreground hover:text-accent transition-colors leading-tight block mb-1">
                     {book.title}

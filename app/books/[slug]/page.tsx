@@ -1,5 +1,6 @@
 import { books, articles, getBook } from "@/lib/data";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
@@ -32,10 +33,10 @@ export default function BookPage({ params }: { params: { slug: string } }) {
         {/* Book cover */}
         <div className="md:col-span-1">
           <div
-            className="w-full aspect-[2/3] rounded-lg flex items-center justify-center text-6xl mb-6"
+            className="w-full aspect-[2/3] rounded-lg mb-6 relative overflow-hidden"
             style={{ backgroundColor: book.coverColor }}
           >
-            📖
+            <Image src={book.coverImage} alt={book.title} fill className="object-cover" sizes="33vw" />
           </div>
           <a
             href={book.amazonUrl}

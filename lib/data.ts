@@ -6,7 +6,8 @@ export interface Book {
   description: string;
   keyTakeaways: string[];
   amazonUrl: string;
-  coverColor: string; // fallback color if no image
+  coverImage: string; // path relative to /public
+  coverColor: string; // fallback color
   featured: boolean;
   rating: number;
 }
@@ -39,6 +40,7 @@ export const books: Book[] = [
       "Getting rich and staying rich are completely different skills",
     ],
     amazonUrl: `https://www.amazon.com/Psychology-Money-Timeless-lessons-happiness/dp/0857197681?tag=${AFFILIATE_TAG}`,
+    coverImage: "/books/psychology-of-money.jpg",
     coverColor: "#1a3a2a",
     featured: true,
     rating: 5,
@@ -58,6 +60,7 @@ export const books: Book[] = [
       "Invest early and consistently — time is your biggest advantage",
     ],
     amazonUrl: `https://www.amazon.com/Will-Teach-You-Rich-Second/dp/1523505745?tag=${AFFILIATE_TAG}`,
+    coverImage: "/books/i-will-teach-you-to-be-rich.jpg",
     coverColor: "#2a1a3a",
     featured: true,
     rating: 5,
@@ -77,6 +80,7 @@ export const books: Book[] = [
       "Time spent planning finances correlates strongly with wealth",
     ],
     amazonUrl: `https://www.amazon.com/Millionaire-Next-Door-Surprising-Americas/dp/1589795474?tag=${AFFILIATE_TAG}`,
+    coverImage: "/books/millionaire-next-door.jpg",
     coverColor: "#3a2a1a",
     featured: true,
     rating: 4,
@@ -96,6 +100,7 @@ export const books: Book[] = [
       "Mind your own business — build your asset column",
     ],
     amazonUrl: `https://www.amazon.com/Rich-Dad-Poor-Teach-Middle/dp/1612680194?tag=${AFFILIATE_TAG}`,
+    coverImage: "/books/rich-dad-poor-dad.jpg",
     coverColor: "#3a1a1a",
     featured: false,
     rating: 4,
@@ -115,6 +120,7 @@ export const books: Book[] = [
       "Keep it simple: diversify broadly and hold forever",
     ],
     amazonUrl: `https://www.amazon.com/Little-Book-Common-Sense-Investing/dp/1119404509?tag=${AFFILIATE_TAG}`,
+    coverImage: "/books/little-book-common-sense-investing.jpg",
     coverColor: "#1a2a3a",
     featured: false,
     rating: 5,
