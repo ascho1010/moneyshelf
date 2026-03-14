@@ -41,15 +41,15 @@ export default function BookCard({ book, variant = "default" }: BookCardProps) {
     >
       {/* Portrait cover — left */}
       <div
-        className="flex-shrink-0 w-24 relative rounded overflow-hidden"
+        className="flex-shrink-0 w-20 relative rounded overflow-hidden self-start"
         style={{ backgroundColor: book.coverColor, aspectRatio: "2/3" }}
       >
         <Image
           src={book.coverImage}
           alt={book.title}
           fill
-          className="object-cover group-hover:scale-105 transition-transform duration-300"
-          sizes="96px"
+          className="object-contain group-hover:scale-105 transition-transform duration-300"
+          sizes="80px"
         />
       </div>
 
