@@ -2,6 +2,39 @@ import { books, articles, getBook } from "@/lib/data";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const book = getBook(params.slug);
+  if (!book) return {};
+
+  const title = `${book.title} by ${book.author} — MoneyShelf`;
+  const description = book.description;
+  const url = `https://moneyshelf.xyz/books/${book.slug}`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url,
+      siteName: "MoneyShelf",
+      images: [{ url: `https://moneyshelf.xyz${book.coverImage}`, alt: book.title }],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+    alternates: { canonical: url },
+  };
+}
 
 export async function generateStaticParams() {
   return books.map((book) => ({ slug: book.slug }));
@@ -23,8 +56,27 @@ export default function BookPage({ params }: { params: { slug: string } }) {
   };
   const categoryClass = categoryColors[book.category] ?? "bg-muted text-muted-foreground";
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Book",
+    name: book.title,
+    author: { "@type": "Person", name: book.author },
+    description: book.description,
+    image: `https://moneyshelf.xyz${book.coverImage}`,
+    url: `https://moneyshelf.xyz/books/${book.slug}`,
+    offers: {
+      "@type": "Offer",
+      url: book.amazonUrl,
+      availability: "https://schema.org/InStock",
+    },
+  };
+
   return (
     <div className="max-w-6xl mx-auto px-6 py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Link href="/books" className="text-sm text-muted-foreground hover:text-foreground transition-colors mb-10 inline-block">
         ← Back to Books
       </Link>

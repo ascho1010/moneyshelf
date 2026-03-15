@@ -2,6 +2,39 @@ import { articles, getArticle, getBooksForArticle } from "@/lib/data";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const article = getArticle(params.slug);
+  if (!article) return {};
+
+  const title = `${article.title} — MoneyShelf`;
+  const description = article.excerpt;
+  const url = `https://moneyshelf.xyz/articles/${article.slug}`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url,
+      siteName: "MoneyShelf",
+      type: "article",
+      publishedTime: article.publishedAt,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+    alternates: { canonical: url },
+  };
+}
 
 export async function generateStaticParams() {
   return articles.map((a) => ({ slug: a.slug }));
@@ -18,8 +51,26 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
     year: "numeric",
   });
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.title,
+    description: article.excerpt,
+    datePublished: article.publishedAt,
+    url: `https://moneyshelf.xyz/articles/${article.slug}`,
+    publisher: {
+      "@type": "Organization",
+      name: "MoneyShelf",
+      url: "https://moneyshelf.xyz",
+    },
+  };
+
   return (
     <div className="max-w-6xl mx-auto px-6 py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Link href="/articles" className="text-sm text-muted-foreground hover:text-foreground transition-colors mb-10 inline-block">
         ← Back to Articles
       </Link>

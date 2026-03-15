@@ -1,5 +1,21 @@
 import { articles } from "@/lib/data";
 import ArticleCard from "@/components/ArticleCard";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Personal Finance Articles — MoneyShelf",
+  description:
+    "Editorial articles on personal finance — every piece anchored in a real book. Investing, saving, spending, and building wealth the right way.",
+  openGraph: {
+    title: "Personal Finance Articles — MoneyShelf",
+    description:
+      "Editorial articles on personal finance — every piece anchored in a real book.",
+    url: "https://moneyshelf.xyz/articles",
+    siteName: "MoneyShelf",
+    type: "website",
+  },
+  alternates: { canonical: "https://moneyshelf.xyz/articles" },
+};
 
 export default function ArticlesPage() {
   return (

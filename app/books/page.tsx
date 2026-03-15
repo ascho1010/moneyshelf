@@ -1,5 +1,21 @@
 import { books } from "@/lib/data";
 import BookCard from "@/components/BookCard";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Best Personal Finance Books — MoneyShelf",
+  description:
+    "A curated shelf of the best personal finance books — on investing, budgeting, mindset, and building wealth. Every book selected for the quality of its ideas.",
+  openGraph: {
+    title: "Best Personal Finance Books — MoneyShelf",
+    description:
+      "A curated shelf of the best personal finance books — on investing, budgeting, mindset, and building wealth.",
+    url: "https://moneyshelf.xyz/books",
+    siteName: "MoneyShelf",
+    type: "website",
+  },
+  alternates: { canonical: "https://moneyshelf.xyz/books" },
+};
 
 const categories = ["All", "Investing", "Budgeting", "Mindset", "Real Estate", "Business"];
 
