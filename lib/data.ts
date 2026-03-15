@@ -435,6 +435,71 @@ export const articles: Article[] = [
       <p>The question isn't "can I afford this?" It's "does this actually make my life better?" Those are very different questions, and surprisingly few people ask the second one.</p>
     `,
   },
+  {
+    slug: "money-and-relationships-the-real-conversation",
+    title: "Money and Relationships: The Conversation Nobody Wants to Have",
+    excerpt:
+      "Couples fight about money more than anything else. But according to Ramit Sethi, they're almost never actually fighting about money. Here's what's really going on — and how to fix it.",
+    publishedAt: "2026-03-13",
+    readTime: 6,
+    bookSlugs: ["money-for-couples"],
+    body: `
+      <p>The number one source of relationship conflict in America isn't infidelity, or parenting, or how to spend the holidays. It's money. And yet most couples spend more time planning a vacation than they do building a shared financial life.</p>
+      <p>Ramit Sethi's <em>Money for Couples</em> tackles this head-on — not with spreadsheets and budget templates, but with something harder: the psychology behind why money conversations blow up, and what it actually takes to get on the same page.</p>
+      <h2>It's not about the money</h2>
+      <p>Sethi's central insight is that money fights are almost never about money. They're about power, control, fear, and values. When one partner resents the other for spending $200 on something, the real argument is usually about autonomy, or security, or a deeper disagreement about what life is supposed to look like.</p>
+      <p>The couples who handle money well aren't the ones with matching spreadsheets. They're the ones who've had the uncomfortable conversations about what they actually want — not just from their bank account, but from their life together.</p>
+      <h2>Align on the vision first</h2>
+      <p>Before you talk about budgets, Sethi says, you need to align on your "Rich Life" — the specific, concrete vision of what a good life looks like for both of you. Not in abstract terms like "financial security," but in real ones: Where do we want to live? How often do we want to travel? What do we want for our kids? What does retirement actually look like?</p>
+      <p>Without that shared vision, every financial decision becomes a battle with no clear winning side. With it, the same decisions become obvious.</p>
+      <h2>Automate the mechanics</h2>
+      <p>Once the vision is in place, Sethi's advice is practical: build a system that runs without you. Automate savings, automate investments, automate bill pay. The less couples have to actively negotiate money on a weekly basis, the less they fight about it. A good financial system removes friction — and friction is what turns small disagreements into big ones.</p>
+      <p>The goal isn't a perfect budget. It's a relationship where money is a tool you use together, not a wedge that drives you apart.</p>
+    `,
+  },
+  {
+    slug: "building-wealth-as-a-woman",
+    title: "The Wealth Gap Is Real — Here's How to Close It Yourself",
+    excerpt:
+      "Women earn less, invest less, and retire with significantly less than men. Katie Gatti Tassin isn't interested in waiting for the system to fix itself. Rich Girl Nation is a manual for closing the gap on your own terms.",
+    publishedAt: "2026-03-11",
+    readTime: 6,
+    bookSlugs: ["rich-girl-nation"],
+    body: `
+      <p>The gender wealth gap isn't a myth. Women in the US retire with roughly 30% less wealth than men, on average. The pay gap is real, but it's not the whole story. The bigger issue is the investing gap — women are far less likely to invest, invest later when they do, and hold more cash relative to equities. The compounding math over 30 years is brutal.</p>
+      <p>Katie Gatti Tassin, creator of the Money with Katie podcast, wrote <em>Rich Girl Nation</em> as a direct response. Not as a lament, but as a manual.</p>
+      <h2>The system wasn't built for you — invest anyway</h2>
+      <p>Gatti Tassin is clear-eyed about the structural disadvantages: the pay gap, career interruptions, longer life expectancy requiring more retirement savings, and a financial industry historically designed to market to men. Understanding these forces matters. But understanding them isn't a strategy.</p>
+      <p>The strategy is: invest early, invest aggressively, and don't wait for a partner, a windfall, or a perfect moment. Every year of delay in starting an investment account is a year of compounding lost forever. The math doesn't care about fairness — it just rewards whoever started first.</p>
+      <h2>Tax-advantaged accounts are the most underused tool</h2>
+      <p>One of the book's most practical sections is on maximizing tax-advantaged accounts — 401(k)s, IRAs, HSAs. These accounts don't just reduce your tax bill; they change the trajectory of your wealth. A woman who maxes her Roth IRA from age 25 to 65 will end up with meaningfully more than one who starts at 35, even if she contributes the same total amount.</p>
+      <p>Gatti Tassin's point isn't that this is fair. It's that knowing it changes what you do this year.</p>
+      <h2>Negotiate. Always.</h2>
+      <p>Research consistently shows women negotiate salary less often than men, and are penalized socially when they do. Gatti Tassin's response: negotiate anyway. The financial penalty for not negotiating — especially early in a career when raises compound into every future raise — is far larger than the social discomfort of asking. Your future self is watching every negotiation you decline to have.</p>
+    `,
+  },
+  {
+    slug: "teaching-kids-about-money",
+    title: "The Best Financial Education Starts at Home",
+    excerpt:
+      "Most kids learn nothing about money until they're adults making expensive mistakes. Ron Lieber has a better idea — and it starts with allowance, awkward conversations, and the word 'no.'",
+    publishedAt: "2026-03-07",
+    readTime: 5,
+    bookSlugs: ["opposite-of-spoiled", "atomic-habits"],
+    body: `
+      <p>Most adults received zero financial education growing up. Not from school, not from parents, not from anywhere that counted. They learned by making expensive mistakes in their 20s — bad debt, no savings, no concept of compound interest. The cycle repeats itself because nobody breaks it.</p>
+      <p>Ron Lieber, the NYT's personal finance columnist, wrote <em>The Opposite of Spoiled</em> as a practical guide for parents who want to do better. His argument is simple: kids who understand money make better adults with money. The earlier you start, the better.</p>
+      <h2>Allowance as a teaching tool</h2>
+      <p>Lieber recommends giving kids a small allowance — not as a reward for chores, but as a tool for learning. The distinction matters. When allowance is tied to chores, kids can opt out of both. When it's a fixed amount intended for practice, it becomes a low-stakes environment for real financial decisions.</p>
+      <p>He suggests three jars: spend, save, give. Simple. But the conversations those jars start — "do I want this now or the bigger thing later?" — are exactly the conversations adults struggle to have with themselves.</p>
+      <h2>Answer the hard questions honestly</h2>
+      <p>Kids ask hard questions. How much do you make? Are we rich? Why can't we afford that? Most parents dodge these. Lieber argues that's a mistake. Honest, age-appropriate answers build financial literacy. Evasion builds either shame or entitlement — both expensive in adulthood.</p>
+      <p>The goal isn't to burden kids with financial anxiety. It's to normalize money as something that gets talked about, thought about, and managed — not something mysterious and stressful that shows up as adult conflict later.</p>
+      <h2>The habits are the point</h2>
+      <p>James Clear's <em>Atomic Habits</em> makes a point that applies directly here: identity-based habits are more durable than outcome-based ones. A kid who thinks of themselves as "someone who saves" will make different decisions for decades than one who was just told to save for a few years. The habits you build in childhood aren't just about money — they're about who you become.</p>
+      <p>The best financial gift you can give a child isn't a college fund. It's a framework for thinking about money before they ever need to think about it seriously.</p>
+    `,
+  },
 ];
 
 export function getBook(slug: string): Book | undefined {
