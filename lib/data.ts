@@ -348,6 +348,93 @@ export const articles: Article[] = [
       <p>The hard part isn't the strategy. The hard part is sitting still during a crash, watching your balance fall 30%, and doing nothing. That's where most investors destroy their own returns. Index funds don't eliminate volatility — they just make the right behavior (holding) easier to execute.</p>
     `,
   },
+  {
+    slug: "fire-movement-numbers-behind-early-retirement",
+    title: "The FIRE Movement: The Actual Math Behind Retiring Early",
+    excerpt:
+      "Retiring in your 30s sounds like fantasy. But for Kristy Shen and Bryce Leung, it was an engineering problem. Here's the math they used — and why it might be more achievable than you think.",
+    publishedAt: "2026-03-14",
+    readTime: 7,
+    bookSlugs: ["quit-like-a-millionaire", "simple-path-to-wealth"],
+    body: `
+      <p>Kristy Shen grew up in poverty in rural China. By her mid-30s, she had retired with a seven-figure portfolio. Not because of a lucky startup, an inheritance, or a windfall. Because of math.</p>
+      <p>Her book <em>Quit Like a Millionaire</em> strips the FIRE movement down to its actual mechanics. And what she finds is that financial independence isn't a personality type — it's a calculation.</p>
+      <h2>The 4% Rule</h2>
+      <p>The central concept behind FIRE is simple: if your annual spending is 4% or less of your invested portfolio, history suggests you'll never run out of money. A $40,000/year lifestyle requires a $1,000,000 portfolio. A $25,000/year lifestyle requires $625,000.</p>
+      <p>This is the same math JL Collins lays out in <em>The Simple Path to Wealth</em>: get your expenses down, invest the gap in low-cost index funds, and wait. The timeline depends entirely on your savings rate — not your income.</p>
+      <h2>The savings rate is everything</h2>
+      <p>This is the part most people miss. Collins shows that at a 10% savings rate, it takes roughly 40 years to retire. At 50%, it takes 17. At 75%, less than 8. The income level barely matters. What matters is the gap between what comes in and what goes out.</p>
+      <p>Shen and her husband used geographic arbitrage — moving to countries with lower costs of living — to accelerate their timeline and protect against sequence-of-returns risk (the danger of a market crash in your early retirement years).</p>
+      <h2>The goal isn't to stop working</h2>
+      <p>Both books make this point clearly. FIRE isn't about hammocks and daiquiris. It's about having the option. Work you choose is fundamentally different from work you're trapped in. That distinction — the freedom to say no — is worth engineering your entire financial life around.</p>
+      <p>You don't have to retire at 35. But knowing you <em>could</em> changes every decision you make until then.</p>
+    `,
+  },
+  {
+    slug: "millionaires-dont-look-like-millionaires",
+    title: "Millionaires Don't Look Like Millionaires",
+    excerpt:
+      "The people most likely to be millionaires drive used cars, live in average neighborhoods, and don't talk about money. The research is clear — and it turns everything you think about wealth upside down.",
+    publishedAt: "2026-03-12",
+    readTime: 6,
+    bookSlugs: ["millionaire-next-door", "psychology-of-money"],
+    body: `
+      <p>Thomas Stanley spent years surveying actual millionaires. Not celebrities. Not tech founders. Real, self-made American millionaires. What he found in <em>The Millionaire Next Door</em> was almost universally surprising to everyone who read it.</p>
+      <p>They lived in ordinary neighborhoods. They drove used cars. They wore modest watches. They were, for lack of a better phrase, boring on purpose.</p>
+      <h2>The wealth illusion</h2>
+      <p>Stanley introduced a useful distinction: PAWs (Prodigious Accumulators of Wealth) and UAWs (Under Accumulators of Wealth). UAWs often have high incomes and look wealthy. PAWs often have moderate incomes and look ordinary. The difference isn't earning — it's keeping.</p>
+      <p>Morgan Housel captures this in <em>The Psychology of Money</em>: "Wealth is what you don't spend." The car on the street, the watch on the wrist — those are signals of spending, not saving. A truly wealthy person is invisible by design, because their net worth is locked in assets no one can see.</p>
+      <h2>High income ≠ high net worth</h2>
+      <p>Stanley found that many doctors, lawyers, and executives — high earners by any measure — were surprisingly poor relative to their income. "Big Hat, No Cattle" is how he described it. The pressure to signal status in high-income professions can consume the very income that should be building wealth.</p>
+      <p>Meanwhile, the plumber who maxed out his 401(k) every year for 30 years and drove a 2009 Toyota quietly crossed $1.5 million without ever making it onto a Forbes list.</p>
+      <h2>What this changes</h2>
+      <p>Wealth is more achievable — and more hidden — than most people realize. You can't see it at the grocery store or in the parking lot. The game is being played off the field, in brokerage accounts and paid-off mortgages, by people who stopped caring what you think about their car a long time ago.</p>
+    `,
+  },
+  {
+    slug: "how-to-make-better-decisions-with-money",
+    title: "Why Smart People Make Bad Financial Decisions — and How to Stop",
+    excerpt:
+      "A poker champion and a startup investor walk into a bar. What they have to say about decisions, uncertainty, and money is more useful than anything most finance books will teach you.",
+    publishedAt: "2026-03-08",
+    readTime: 7,
+    bookSlugs: ["thinking-in-bets", "almanack-naval-ravikant"],
+    body: `
+      <p>Annie Duke won over $4 million playing poker. She'll tell you it wasn't because she was always right. It was because she got better at being wrong correctly.</p>
+      <p>Her book <em>Thinking in Bets</em> starts with an uncomfortable truth: we judge decisions by their outcomes. If an investment pays off, we call it smart. If it doesn't, we call it dumb. But that logic is backwards. A bad decision can produce a good outcome. A great decision can produce a terrible one. Luck is real, and we systematically ignore it.</p>
+      <h2>The "resulting" trap</h2>
+      <p>Duke calls this "resulting" — evaluating the quality of a decision based on what happened rather than on the information available at the time. It's how investors chase last year's winners, why people sell at market bottoms (the decision "felt" bad because the outcome was bad), and why financial FOMO is so destructive.</p>
+      <p>The fix is to think in probabilities. Instead of "should I buy this stock?", ask: "Given what I know, what's the range of outcomes and their likelihoods?" You're not trying to be certain. You're trying to be calibrated.</p>
+      <h2>Naval's version of the same idea</h2>
+      <p>Eric Jorgenson's <em>The Almanack of Naval Ravikant</em> approaches decision-making differently but lands in the same place. Naval talks about the compounding of judgment: "The most important skill you can have in any domain is the ability to make good decisions, because it will generate results forever. Almost everything else is rented."</p>
+      <p>His framework: play long-term games with long-term people, avoid decisions made from fear or FOMO, and build specific knowledge — the kind no one can teach you, that you build through obsession and that the market will eventually pay you for.</p>
+      <h2>The practical takeaway</h2>
+      <p>Most financial mistakes aren't about strategy — they're about decision quality under pressure. Duke's advice: before making any major financial move, write down your reasoning. Not to record it, but to force clarity. The act of articulating a decision exposes assumptions you didn't know you were making.</p>
+      <p>Then, when you review it later, judge the decision on the logic — not on what the market did next.</p>
+    `,
+  },
+  {
+    slug: "spending-is-a-skill-most-people-are-bad-at",
+    title: "Spending Is a Skill. Most People Are Bad at It.",
+    excerpt:
+      "We spend decades learning how to earn money and almost no time learning how to spend it. Morgan Housel's follow-up to The Psychology of Money asks the question nobody wants to answer: what does money actually buy you?",
+    publishedAt: "2026-03-01",
+    readTime: 6,
+    bookSlugs: ["art-of-spending-money", "wealth-ladder"],
+    body: `
+      <p>There's a strange gap in personal finance literature. Hundreds of books on how to save, invest, and accumulate. Almost none on what to actually do with the money once you have it.</p>
+      <p>Morgan Housel fills that gap with <em>The Art of Spending Money</em>. His argument is direct: spending is a skill, and most people are terrible at it — not because they spend too much, but because they spend on the wrong things in the wrong way.</p>
+      <h2>The hedonic treadmill is real</h2>
+      <p>Housel points to decades of psychology research showing that after basic needs are met, more stuff produces diminishing returns to happiness. The vacation house that was exciting in year one is ordinary by year three. The car upgrade gives you a week of joy, then becomes background noise.</p>
+      <p>What does hold its value? Experiences, relationships, time, and control over your schedule. These things depreciate slowly or not at all. The challenge is that they're harder to buy directly and don't signal wealth to others — which is precisely why most people underinvest in them.</p>
+      <h2>Where you are in life changes the calculus</h2>
+      <p>Nick Maggiulli's <em>The Wealth Ladder</em> adds a useful frame: what good spending looks like depends entirely on your financial stage. Early-career spenders should focus almost entirely on income growth — the ROI of a professional development course or networking dinner dwarfs any portfolio optimization at that point. Mid-career, the math shifts toward debt elimination and tax efficiency. Late-career, spending on time and experiences makes more sense than ever, because there's less of it left.</p>
+      <p>Treating all financial stages identically is one of the most common and expensive mistakes people make.</p>
+      <h2>The intentionality question</h2>
+      <p>Housel's prescription is deceptively simple: spend extravagantly on the things that matter most to you. Cut without mercy on the things that don't. Most people do the opposite — they spend uniformly, diffusing their budget across subscriptions, upgrades, and social signals, then feel vaguely dissatisfied regardless of how much they have.</p>
+      <p>The question isn't "can I afford this?" It's "does this actually make my life better?" Those are very different questions, and surprisingly few people ask the second one.</p>
+    `,
+  },
 ];
 
 export function getBook(slug: string): Book | undefined {
