@@ -1,5 +1,5 @@
 import { books } from "@/lib/data";
-import BookCard from "@/components/BookCard";
+import BookListItem from "@/components/BookListItem";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -47,9 +47,9 @@ export default function BooksPage() {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {books.map((book) => (
-          <BookCard key={book.slug} book={book} />
+      <div>
+        {books.map((book, i) => (
+          <BookListItem key={book.slug} book={book} index={i + 1} />
         ))}
       </div>
     </div>
