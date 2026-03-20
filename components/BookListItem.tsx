@@ -20,11 +20,11 @@ export default function BookListItem({ book, index }: BookListItemProps) {
   const num = String(index).padStart(2, "0");
 
   return (
-    <article className="flex flex-col sm:flex-row gap-6 py-10 border-b border-border last:border-0 group">
+    <article className="flex flex-col sm:flex-row gap-4 py-10 border-b border-border last:border-0 group">
       {/* Left: number + text content */}
       <div className="flex-1 min-w-0">
         {/* Number */}
-        <span className="font-serif text-6xl font-black text-border/60 leading-none block mb-4 select-none">
+        <span className="font-serif text-6xl font-black text-accent leading-none block mb-4 select-none">
           {num}
         </span>
 
@@ -82,7 +82,7 @@ export default function BookListItem({ book, index }: BookListItemProps) {
           <div
             className="relative rounded overflow-hidden"
             style={{
-              width: "clamp(120px, 18vw, 180px)",
+              width: "clamp(90px, 12vw, 120px)",
               aspectRatio: "2/3",
               backgroundColor: book.coverColor,
             }}
@@ -91,8 +91,8 @@ export default function BookListItem({ book, index }: BookListItemProps) {
               src={book.coverImage}
               alt={book.title}
               fill
-              className="object-contain group-hover:scale-105 transition-transform duration-300"
-              sizes="(max-width: 640px) 120px, 180px"
+              className="object-cover group-hover:scale-105 transition-transform duration-300"
+              sizes="(max-width: 640px) 90px, 120px"
             />
           </div>
         </Link>
