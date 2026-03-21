@@ -48,7 +48,7 @@ export default function RecommenderPage() {
       )}
 
       {phase === "result" && result && (
-        <BookRecommendationLockup book={result} onReset={handleReset} />
+        <BookRecommendationLockup book={result} label="Your top match" onReset={handleReset} />
       )}
 
       {phase === "no-match" && (

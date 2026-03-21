@@ -2,30 +2,34 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ScoredBook } from "@/lib/recommender";
+import { Book } from "@/lib/data";
 
 interface BookRecommendationLockupProps {
-  book: ScoredBook;
+  book: Book & { matchReasons?: string[] };
+  label?: string;
   onReset?: () => void;
 }
 
 export default function BookRecommendationLockup({
   book,
+  label,
   onReset,
 }: BookRecommendationLockupProps) {
   return (
     <div>
-      {/* Label */}
-      <p className="text-xs uppercase tracking-widest text-muted-foreground mb-6">
-        Your top match
-      </p>
+      {/* Optional label (e.g. "Your top match") */}
+      {label && (
+        <p className="text-xs uppercase tracking-widest text-muted-foreground mb-6">
+          {label}
+        </p>
+      )}
 
       {/* Lockup */}
       <section className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
         {/* ── Left column: text ──────────────────────────────────── */}
         <div className="flex-1 max-w-[560px]">
           {/* Match reason badges */}
-          {book.matchReasons.length > 0 && (
+          {book.matchReasons && book.matchReasons.length > 0 && (
             <div className="flex flex-wrap gap-2 mb-5">
               {book.matchReasons.map((reason) => (
                 <span
