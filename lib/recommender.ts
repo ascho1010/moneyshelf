@@ -20,6 +20,7 @@ const goalCategoryMap: Record<string, { primary: string[]; secondary: string[] }
   retirement:             { primary: ["Investing"],  secondary: ["Mindset"] },
   "financial-independence": { primary: ["Investing"], secondary: ["Mindset"] },
   mindset:                { primary: ["Mindset"],    secondary: ["Investing"] },
+  "real-estate":          { primary: ["Real Estate"], secondary: ["Investing"] },
 };
 
 // Difficulty per slug
@@ -28,16 +29,25 @@ const slugDifficulty: Record<string, "beginner" | "intermediate" | "advanced"> =
   "i-will-teach-you-to-be-rich":       "beginner",
   "atomic-habits":                     "beginner",
   "little-book-common-sense-investing":"beginner",
+  "broke-millennial":                  "beginner",
+  "the-index-card":                    "beginner",
+  "get-good-with-money":               "beginner",
   "millionaire-next-door":             "intermediate",
   "simple-path-to-wealth":             "intermediate",
   "money-for-couples":                 "intermediate",
   "art-of-spending-money":             "intermediate",
   "opposite-of-spoiled":               "intermediate",
+  "die-with-zero":                     "intermediate",
+  "your-money-or-your-life":           "intermediate",
+  "just-keep-buying":                  "intermediate",
+  "set-for-life":                      "intermediate",
   "wealth-ladder":                     "advanced",
   "quit-like-a-millionaire":           "advanced",
   "rich-girl-nation":                  "advanced",
   "almanack-naval-ravikant":           "advanced",
   "thinking-in-bets":                  "advanced",
+  "random-walk-down-wall-street":      "advanced",
+  "intelligent-investor":              "advanced",
 };
 
 // Learning style per slug
@@ -56,6 +66,15 @@ const slugLearningStyle: Record<string, Array<"actionable" | "narrative" | "data
   "rich-girl-nation":                  ["actionable"],
   "almanack-naval-ravikant":           ["narrative"],
   "thinking-in-bets":                  ["data-driven"],
+  "die-with-zero":                     ["narrative"],
+  "your-money-or-your-life":           ["narrative"],
+  "just-keep-buying":                  ["data-driven", "actionable"],
+  "set-for-life":                      ["actionable"],
+  "broke-millennial":                  ["actionable"],
+  "random-walk-down-wall-street":      ["data-driven"],
+  "the-index-card":                    ["actionable"],
+  "intelligent-investor":              ["data-driven"],
+  "get-good-with-money":               ["actionable"],
 };
 
 // Read time per slug
@@ -63,17 +82,26 @@ const slugReadTime: Record<string, "short" | "medium" | "long"> = {
   "little-book-common-sense-investing":"short",
   "almanack-naval-ravikant":           "short",
   "art-of-spending-money":             "short",
+  "the-index-card":                    "short",
   "psychology-of-money":               "medium",
   "i-will-teach-you-to-be-rich":       "medium",
   "atomic-habits":                     "medium",
   "thinking-in-bets":                  "medium",
   "opposite-of-spoiled":               "medium",
+  "die-with-zero":                     "medium",
+  "broke-millennial":                  "medium",
+  "get-good-with-money":               "medium",
+  "just-keep-buying":                  "medium",
   "millionaire-next-door":             "long",
   "simple-path-to-wealth":             "long",
   "quit-like-a-millionaire":           "long",
   "wealth-ladder":                     "long",
   "money-for-couples":                 "long",
   "rich-girl-nation":                  "long",
+  "your-money-or-your-life":           "long",
+  "set-for-life":                      "long",
+  "random-walk-down-wall-street":      "long",
+  "intelligent-investor":              "long",
 };
 
 export function scoreBooks(inputs: RecommenderInputs, books: Book[]): ScoredBook[] {
