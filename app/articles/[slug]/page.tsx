@@ -1,4 +1,4 @@
-import { articles, getArticle, getBooksForArticle } from "@/lib/data";
+import { allArticles, getArticle, getBooksForArticle } from "@/lib/data";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -19,6 +19,8 @@ export async function generateMetadata({
   return {
     title: pageTitle(article.title),
     description,
+    // Drafts stay out of search until the editorial is written.
+    ...(article.draft ? { robots: { index: false, follow: false } } : {}),
     openGraph: {
       title: article.title,
       description,
@@ -36,7 +38,8 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  return articles.map((a) => ({ slug: a.slug }));
+  // allArticles so drafts are previewable at their URL before publishing.
+  return allArticles.map((a) => ({ slug: a.slug }));
 }
 
 export default function ArticlePage({ params }: { params: { slug: string } }) {
@@ -100,6 +103,25 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
       <Link href="/articles" className="inline-block text-sm font-bold text-ink underline decoration-orange decoration-2 underline-offset-4 hover:text-accent transition-colors mb-10">
         ← Back to Articles
       </Link>
+
+      {article.draft && (
+        <div className="bg-yellow border-2 border-border rounded-[16px] p-5 mb-8">
+          <p className="font-display text-lg font-extrabold tracking-tight text-ink mb-1">
+            Draft — not published
+          </p>
+          <p className="text-sm text-ink/80 leading-relaxed">
+            This outline is hidden from the articles list, the sitemap, and
+            search engines. Replace the prompts below with your copy, then set{" "}
+            <code className="font-mono text-[13px]">draft: false</code> in{" "}
+            <code className="font-mono text-[13px]">lib/data.ts</code> to publish.
+            {article.targetKeyword && (
+              <>
+                {" "}Target query: <strong>{article.targetKeyword}</strong>.
+              </>
+            )}
+          </p>
+        </div>
+      )}
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mt-4">
         {/* Article body */}

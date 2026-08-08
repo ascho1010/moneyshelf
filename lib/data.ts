@@ -20,6 +20,14 @@ export interface Article {
   readTime: number;
   bookSlugs: string[];
   body: string; // HTML string for now
+  /**
+   * Draft articles are scaffolding: they keep their slug, metadata and book
+   * links, but stay out of listings, the sitemap, and search results until
+   * the editorial is written. Still reachable by URL so you can preview.
+   */
+  draft?: boolean;
+  /** Working note for the author — never rendered. */
+  targetKeyword?: string;
 }
 
 export const AFFILIATE_TAG = "moneyshelf0e-20";
@@ -762,14 +770,178 @@ export const articles: Article[] = [
   },
 ];
 
+// ─────────────────────────────────────────────────────────────────────────
+// Scaffolded drafts. Structure, metadata, book links and target keywords are
+// set; the prose is yours to write. Flip `draft: false` to publish — that
+// alone adds it to the listing, the sitemap, and search results.
+//
+// Each <p class="draft-note"> is an author prompt, not copy. Replace them.
+// ─────────────────────────────────────────────────────────────────────────
+export const draftArticles: Article[] = [
+  {
+    slug: "best-books-for-fire",
+    title: "The Best Books for FIRE, Ranked by Where You Are on the Path",
+    excerpt:
+      "Financial independence isn't one journey — it's four or five different problems depending on where you're standing. Here's which book solves the one in front of you.",
+    publishedAt: "2026-08-07",
+    readTime: 11,
+    targetKeyword: "best FIRE books / best books for financial independence",
+    draft: true,
+    bookSlugs: [
+      "simple-path-to-wealth",
+      "your-money-or-your-life",
+      "financial-freedom",
+      "playing-with-fire",
+      "quit-like-a-millionaire",
+      "set-for-life",
+    ],
+    body: `
+      <p class="draft-note">HOOK: most "best FIRE books" lists are undifferentiated rankings. The angle here is sequencing — the right book depends on which stage you're at. Say that in the first two sentences.</p>
+      <h2>Stage 1: You don't believe it's possible yet</h2>
+      <p class="draft-note">Your Money or Your Life + Playing with FIRE. The job of these books is belief and motivation, not tactics. Rieckens is the one to hand someone who thinks FIRE is a fantasy.</p>
+      <h2>Stage 2: You're convinced but don't know the mechanics</h2>
+      <p class="draft-note">The Simple Path to Wealth. Cover the index-fund thesis and why the boring answer is the right one. Link through to the index funds article.</p>
+      <h2>Stage 3: Your savings rate has hit a ceiling</h2>
+      <p class="draft-note">Financial Freedom (Sabatier). The pivot from cutting expenses to growing income. This is the stage most people get stuck at — worth the most words.</p>
+      <h2>Stage 4: You want the actual math</h2>
+      <p class="draft-note">Quit Like a Millionaire. 4% rule, sequence-of-returns risk, geographic arbitrage. Link to the 4% rule article once it's live.</p>
+      <h2>Stage 5: You want to accelerate with real estate or house hacking</h2>
+      <p class="draft-note">Set for Life + The Book on Rental Property Investing.</p>
+      <h2>If you only read one</h2>
+      <p class="draft-note">Pick one and commit to it. A hedge here undermines the whole piece.</p>
+    `,
+  },
+  {
+    slug: "coast-fire-barista-lean-fat-explained",
+    title: "Coast FIRE, Barista FIRE, Lean, Fat: Which One Are You Actually Chasing?",
+    excerpt:
+      "The FIRE community has splintered into half a dozen variants, and people routinely pursue the wrong one for years. Here's what each actually means — and the math that separates them.",
+    publishedAt: "2026-08-07",
+    readTime: 9,
+    targetKeyword: "coast FIRE vs barista FIRE / types of FIRE explained",
+    draft: true,
+    bookSlugs: ["playing-with-fire", "quit-like-a-millionaire", "your-money-or-your-life"],
+    body: `
+      <p class="draft-note">HOOK: the variants aren't lifestyle labels, they're different target numbers. Choosing the wrong one costs years. Lead with that.</p>
+      <h2>The one number underneath all of them</h2>
+      <p class="draft-note">Annual spending × 25. Every variant is a modification of this. Establish it before the taxonomy or nothing else lands.</p>
+      <h2>Lean FIRE</h2>
+      <p class="draft-note">Define, give a worked example with real numbers, state who it suits and the failure mode (no margin for a bad decade).</p>
+      <h2>Fat FIRE</h2>
+      <p class="draft-note">Same structure. Failure mode: the target keeps moving.</p>
+      <h2>Coast FIRE</h2>
+      <p class="draft-note">The most misunderstood one. Show the compounding math — invest enough early, then stop contributing. Worth a small table.</p>
+      <h2>Barista FIRE</h2>
+      <p class="draft-note">Partial income, usually for health insurance. US-specific; say so.</p>
+      <h2>Which one you're actually chasing</h2>
+      <p class="draft-note">Close with a short diagnostic. Natural CTA to the recommender quiz.</p>
+    `,
+  },
+  {
+    slug: "books-like-the-psychology-of-money",
+    title: "Books Like The Psychology of Money: What to Read Next",
+    excerpt:
+      "Housel's book works because it treats money as behavior, not math. If that's what you loved, here's what actually scratches the same itch — and what only looks like it will.",
+    publishedAt: "2026-08-07",
+    readTime: 8,
+    targetKeyword: "books like the psychology of money",
+    draft: true,
+    bookSlugs: [
+      "psychology-of-money",
+      "thinking-in-bets",
+      "millionaire-next-door",
+      "atomic-habits",
+      "die-with-zero",
+      "art-of-spending-money",
+    ],
+    body: `
+      <p class="draft-note">HOOK: name precisely WHY Housel worked — short chapters, stories over formulas, behavior over optimization. The recommendations only make sense against that.</p>
+      <h2>If you loved the storytelling</h2>
+      <p class="draft-note">The Millionaire Next Door — research told as narrative.</p>
+      <h2>If you loved the decision-making chapters</h2>
+      <p class="draft-note">Thinking in Bets. Duke goes deeper on separating decision quality from outcome quality.</p>
+      <h2>If you want to change behavior, not just understand it</h2>
+      <p class="draft-note">Atomic Habits. Housel diagnoses; Clear gives the mechanism.</p>
+      <h2>If the "enough" chapter hit hardest</h2>
+      <p class="draft-note">Die With Zero + The Art of Spending Money.</p>
+      <h2>What NOT to read next</h2>
+      <p class="draft-note">This section is what makes the piece trustworthy rather than a list. Name a popular title that superficially resembles Housel and explain why it disappoints.</p>
+      <p class="draft-note">TEMPLATE NOTE: this structure repeats for any popular book — "books like Rich Dad Poor Dad", "books like I Will Teach You to Be Rich". Same five sections.</p>
+    `,
+  },
+  {
+    slug: "simple-path-vs-bogleheads-guide",
+    title: "The Simple Path to Wealth vs. The Bogleheads' Guide: Which Should You Read First?",
+    excerpt:
+      "Both preach low-cost index investing. They are not interchangeable, and the wrong one first is why plenty of people bounce off index investing entirely.",
+    publishedAt: "2026-08-07",
+    readTime: 7,
+    targetKeyword: "simple path to wealth vs bogleheads guide",
+    draft: true,
+    bookSlugs: [
+      "simple-path-to-wealth",
+      "bogleheads-guide-to-investing",
+      "little-book-common-sense-investing",
+    ],
+    body: `
+      <p class="draft-note">HOOK: state the verdict in the first paragraph. Comparison readers are deciding a purchase — don't bury it.</p>
+      <h2>The short answer</h2>
+      <p class="draft-note">One sentence each on who should pick which. Everything after is support.</p>
+      <h2>What The Simple Path to Wealth does better</h2>
+      <p class="draft-note">Voice, momentum, letters-to-a-daughter framing. Gets people to actually act.</p>
+      <h2>What The Bogleheads' Guide does better</h2>
+      <p class="draft-note">Breadth — asset location, tax efficiency, account placement. Reference material rather than persuasion.</p>
+      <h2>Where they disagree</h2>
+      <p class="draft-note">The most valuable section. Portfolio complexity, bond allocation, international exposure. Be specific and fair.</p>
+      <h2>Reading them in order</h2>
+      <p class="draft-note">Recommend a sequence and mention where Bogle's own Little Book fits.</p>
+      <p class="draft-note">TEMPLATE NOTE: repeatable for any two overlapping books on the shelf.</p>
+    `,
+  },
+  {
+    slug: "four-percent-rule-stress-tested",
+    title: "The 4% Rule, Stress-Tested: What the Research Actually Says",
+    excerpt:
+      "The most quoted number in FIRE comes from a 1994 paper about a specific portfolio over a specific period. Here's what Bengen and the Trinity Study actually concluded — and where the rule breaks.",
+    publishedAt: "2026-08-07",
+    readTime: 12,
+    targetKeyword: "is the 4% rule safe / 4 percent rule explained",
+    draft: true,
+    bookSlugs: ["quit-like-a-millionaire", "your-money-or-your-life", "just-keep-buying"],
+    body: `
+      <p class="draft-note">HOOK: nearly everyone quoting the 4% rule has not read the source. Say what it actually claimed — and what it never claimed. This is the credibility piece; accuracy matters more than pace.</p>
+      <h2>Where the number came from</h2>
+      <p class="draft-note">Bengen 1994, then the Trinity Study. Be precise: 30-year horizon, specific stock/bond mix, US historical data. Cite properly.</p>
+      <h2>What it never claimed</h2>
+      <p class="draft-note">Not a guarantee, not inflation-proof in every scenario, not designed for 50-year retirements — which is exactly what FIRE requires.</p>
+      <h2>Sequence-of-returns risk</h2>
+      <p class="draft-note">The real danger. A bad first five years is materially different from a bad last five. Worth a concrete worked example.</p>
+      <h2>What breaks it</h2>
+      <p class="draft-note">Early-retirement horizons, non-US markets, high fees, and rigid spending. Shen &amp; Leung's yield shield and cash cushion belong here.</p>
+      <h2>What to use instead</h2>
+      <p class="draft-note">Variable withdrawal, guardrails, flexibility. Land on something practical rather than just debunking.</p>
+      <h2>So is it safe?</h2>
+      <p class="draft-note">Give a real answer. Hedging here wastes the whole article.</p>
+    `,
+  },
+];
+
 export function getBook(slug: string): Book | undefined {
   return books.find((b) => b.slug === slug);
 }
 
+/**
+ * Published + drafts. Use this only for slug lookup and static generation, so
+ * drafts are previewable by URL. Listings and the sitemap read `articles`,
+ * which stays published-only.
+ */
+export const allArticles: Article[] = [...articles, ...draftArticles];
+
 export function getArticle(slug: string): Article | undefined {
-  return articles.find((a) => a.slug === slug);
+  return allArticles.find((a) => a.slug === slug);
 }
 
 export function getBooksForArticle(article: Article): Book[] {
   return article.bookSlugs.map((s) => getBook(s)).filter(Boolean) as Book[];
 }
+
