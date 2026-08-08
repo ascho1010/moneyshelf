@@ -36,6 +36,10 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
+  // Google Search Console ownership check for the www property.
+  verification: {
+    google: "Y3y0_82UM4Vki9JchopECE47mkYVCVnQORRxVahVO8o",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
