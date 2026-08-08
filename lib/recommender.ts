@@ -48,6 +48,10 @@ const slugDifficulty: Record<string, "beginner" | "intermediate" | "advanced"> =
   "thinking-in-bets":                  "advanced",
   "random-walk-down-wall-street":      "advanced",
   "intelligent-investor":              "advanced",
+  "bogleheads-guide-to-investing":     "beginner",
+  "playing-with-fire":                 "beginner",
+  "financial-freedom":                 "intermediate",
+  "book-on-rental-property-investing": "intermediate",
 };
 
 // Learning style per slug
@@ -75,6 +79,10 @@ const slugLearningStyle: Record<string, Array<"actionable" | "narrative" | "data
   "the-index-card":                    ["actionable"],
   "intelligent-investor":              ["data-driven"],
   "get-good-with-money":               ["actionable"],
+  "financial-freedom":                 ["actionable"],
+  "playing-with-fire":                 ["narrative"],
+  "book-on-rental-property-investing": ["actionable", "data-driven"],
+  "bogleheads-guide-to-investing":     ["actionable", "data-driven"],
 };
 
 // Read time per slug
@@ -102,6 +110,10 @@ const slugReadTime: Record<string, "short" | "medium" | "long"> = {
   "set-for-life":                      "long",
   "random-walk-down-wall-street":      "long",
   "intelligent-investor":              "long",
+  "playing-with-fire":                 "medium",
+  "financial-freedom":                 "long",
+  "book-on-rental-property-investing": "long",
+  "bogleheads-guide-to-investing":     "long",
 };
 
 export function scoreBooks(inputs: RecommenderInputs, books: Book[]): ScoredBook[] {

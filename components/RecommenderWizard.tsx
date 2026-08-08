@@ -17,6 +17,7 @@ const STEPS: {
       { label: "Start or improve my investing", value: "investing" },
       { label: "Plan for retirement", value: "retirement" },
       { label: "Reach financial independence", value: "financial-independence" },
+      { label: "Invest in real estate", value: "real-estate" },
       { label: "Fix my money mindset", value: "mindset" },
     ],
   },
