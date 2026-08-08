@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Book } from "@/lib/data";
+import { categoryBg, categoryTint } from "@/lib/ui";
 
 interface BookRecommendationLockupProps {
   book: Book & { matchReasons?: string[] };
@@ -17,40 +18,41 @@ export default function BookRecommendationLockup({
 }: BookRecommendationLockupProps) {
   return (
     <div>
-      {/* Optional label (e.g. "Your top match") */}
       {label && (
-        <p className="text-xs uppercase tracking-widest text-muted-foreground mb-6">
+        <p className="inline-block bg-yellow border-2 border-border rounded-full text-xs font-bold uppercase tracking-wide px-3 py-1.5 mb-6">
           {label}
         </p>
       )}
 
-      {/* Lockup */}
       <section className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
-        {/* ── Left column: text ──────────────────────────────────── */}
+        {/* ── Left: text ── */}
         <div className="flex-1 max-w-[560px]">
-          {/* Match reason badges */}
-          {book.matchReasons && book.matchReasons.length > 0 && (
-            <div className="flex flex-wrap gap-2 mb-5">
-              {book.matchReasons.map((reason) => (
-                <span
-                  key={reason}
-                  className="text-xs px-2.5 py-1 rounded-full border border-accent/40 text-accent"
-                >
-                  {reason}
-                </span>
-              ))}
-            </div>
-          )}
+          <div className="flex flex-wrap gap-2 mb-5">
+            <span
+              className="inline-block border-2 border-border rounded-full text-[11px] font-bold px-2.5 py-1"
+              style={{ backgroundColor: categoryBg(book.category) }}
+            >
+              {book.category}
+            </span>
+            {book.matchReasons?.map((reason) => (
+              <span
+                key={reason}
+                className="inline-block bg-mint border-2 border-border rounded-full text-[11px] font-bold px-2.5 py-1"
+              >
+                {reason}
+              </span>
+            ))}
+          </div>
 
-          <h2 className="font-serif italic text-3xl md:text-4xl text-foreground leading-tight">
+          <h2 className="font-display text-3xl md:text-4xl font-extrabold tracking-tight text-ink leading-tight">
             {book.title}
           </h2>
 
-          <p className="mt-2 text-sm text-muted-foreground">
+          <p className="mt-2 text-sm text-subtle">
             by{" "}
             <Link
               href={`/books/${book.slug}`}
-              className="text-foreground underline underline-offset-2 hover:text-accent transition-colors"
+              className="font-semibold text-ink underline decoration-orange decoration-2 underline-offset-2 hover:text-accent transition-colors"
             >
               {book.author}
             </Link>
@@ -60,12 +62,11 @@ export default function BookRecommendationLockup({
             {book.description}
           </p>
 
-          {/* Key takeaways */}
           {book.keyTakeaways?.length > 0 && (
-            <ul className="mt-6 space-y-2">
+            <ul className="mt-6 space-y-2.5">
               {book.keyTakeaways.slice(0, 3).map((takeaway) => (
-                <li key={takeaway} className="flex items-start gap-2 text-sm text-muted-foreground">
-                  <span className="text-accent mt-0.5 shrink-0">★</span>
+                <li key={takeaway} className="flex items-start gap-2.5 text-sm text-muted-foreground">
+                  <span className="text-orange mt-0.5 shrink-0">★</span>
                   <span>{takeaway}</span>
                 </li>
               ))}
@@ -73,40 +74,46 @@ export default function BookRecommendationLockup({
           )}
         </div>
 
-        {/* ── Right column: cover + CTA ───────────────────────────── */}
-        <div className="flex flex-col items-start gap-4 shrink-0">
+        {/* ── Right: cover + CTA ── */}
+        <div className="flex flex-col items-stretch gap-4 shrink-0 w-full md:w-[300px]">
           <div
-            className="w-full md:w-[420px] rounded overflow-hidden shadow-2xl"
-            style={{ backgroundColor: book.coverColor }}
+            className="border-2 border-border rounded-[18px] p-5 flex justify-center"
+            style={{ backgroundColor: categoryTint(book.category) }}
           >
-            <Image
-              src={book.coverImage}
-              alt={`${book.title} cover`}
-              width={420}
-              height={630}
-              className="w-full md:w-[420px] object-cover"
-              priority
-            />
+            <div
+              className="w-[180px] rounded-[12px] overflow-hidden border-2 border-border shadow-pop"
+              style={{ backgroundColor: book.coverColor, aspectRatio: "2 / 3" }}
+            >
+              <Image
+                src={book.coverImage}
+                alt={`${book.title} cover`}
+                width={360}
+                height={540}
+                className="w-full h-full object-cover"
+                priority
+              />
+            </div>
           </div>
 
           <a
             href={book.amazonUrl}
             target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded border border-accent/50 text-accent text-sm font-medium hover:bg-accent/10 transition-colors"
+            rel="noopener noreferrer sponsored"
+            className="pop block text-center bg-accent text-background font-bold text-sm px-5 py-3.5 rounded-[12px] border-2 border-border"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            Add to Bookshelf
+            Get it on Amazon ↗
           </a>
+          <p className="text-xs text-subtle text-center">
+            Affiliate link — we earn a small commission at no cost to you.
+          </p>
         </div>
       </section>
 
-      {/* Try again */}
       {onReset && (
         <div className="mt-10">
           <button
             onClick={onReset}
-            className="text-sm text-muted-foreground underline underline-offset-2 hover:text-foreground transition-colors"
+            className="text-sm font-semibold text-ink underline decoration-orange decoration-2 underline-offset-2 hover:text-accent transition-colors"
           >
             ← Try again
           </button>

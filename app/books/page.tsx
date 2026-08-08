@@ -1,5 +1,6 @@
 import { books } from "@/lib/data";
 import BookRecommendationLockup from "@/components/BookRecommendationLockup";
+import { categoryBg } from "@/lib/ui";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -23,25 +24,27 @@ export default function BooksPage() {
   return (
     <div className="max-w-4xl mx-auto px-6 py-16">
       {/* Header */}
-      <div className="mb-12">
-        <p className="text-xs uppercase tracking-widest text-accent mb-3">The Shelf</p>
-        <h1 className="font-serif text-5xl font-black text-foreground mb-4">All Books</h1>
-        <p className="text-muted-foreground max-w-lg">
-          Every book on this shelf has been selected for the quality of its ideas.
-          Not hype, not bestseller lists — just books that genuinely change how you think about money.
+      <div className="mb-10">
+        <span className="inline-block bg-yellow border-2 border-border rounded-full text-xs font-bold uppercase tracking-wide px-3 py-1.5 mb-4">
+          The shelf
+        </span>
+        <h1 className="font-display text-5xl md:text-6xl font-extrabold tracking-tight text-ink mb-4 text-balance">
+          All the books
+        </h1>
+        <p className="text-muted-foreground text-[17px] leading-relaxed max-w-lg">
+          Every book on this shelf earned its spot on the quality of its ideas.
+          Not hype, not bestseller lists — just books that genuinely change how
+          you think about money.
         </p>
       </div>
 
       {/* Category filters */}
-      <div className="flex flex-wrap gap-2 mb-16">
+      <div className="flex flex-wrap gap-2.5 mb-14">
         {categories.map((cat) => (
           <span
             key={cat}
-            className={`text-xs px-3 py-1.5 rounded-full border transition-colors cursor-default ${
-              cat === "All"
-                ? "border-accent text-accent"
-                : "border-border text-muted-foreground hover:border-foreground/40 hover:text-foreground"
-            }`}
+            className="text-[13px] font-bold px-4 py-2 rounded-full border-2 border-border cursor-default"
+            style={{ backgroundColor: cat === "All" ? "#221D14" : categoryBg(cat), color: cat === "All" ? "#FFF8EE" : "#221D14" }}
           >
             {cat}
           </span>
@@ -49,28 +52,12 @@ export default function BooksPage() {
       </div>
 
       {/* Book list */}
-      <div className="divide-y divide-border">
+      <div className="flex flex-col gap-14">
         {books.map((book) => (
-          <div key={book.slug} className="py-16 first:pt-0">
-            {/* Category + number label */}
-            <div className="flex items-center gap-3 mb-6">
-              <span className="text-xs uppercase tracking-widest text-accent">
-                {book.category}
-              </span>
-              {book.featured && (
-                <span className="text-xs px-2 py-0.5 rounded-full border border-accent/40 text-accent">
-                  Featured
-                </span>
-              )}
-              <div className="flex items-center gap-0.5 ml-auto">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <span key={i} className={`text-xs ${i < book.rating ? "text-accent" : "text-border"}`}>
-                    ★
-                  </span>
-                ))}
-              </div>
-            </div>
-
+          <div
+            key={book.slug}
+            className="bg-card border-2 border-border rounded-[24px] p-7 md:p-9 shadow-card"
+          >
             <BookRecommendationLockup book={book} />
           </div>
         ))}

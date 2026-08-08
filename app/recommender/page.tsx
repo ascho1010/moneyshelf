@@ -32,19 +32,24 @@ export default function RecommenderPage() {
   }
 
   return (
-    <main className="mx-auto max-w-3xl px-5 py-16 md:py-24">
+    <main className="mx-auto max-w-3xl px-6 py-16 md:py-20">
       <div className="mb-12">
-        <h1 className="font-serif text-4xl md:text-5xl text-foreground mb-3">
-          Find Your Book
+        <span className="inline-flex items-center gap-1.5 bg-orange text-ink border-2 border-border rounded-full text-xs font-bold uppercase tracking-wide px-3 py-1.5 mb-4">
+          <span aria-hidden="true">📖</span> Book matchmaker
+        </span>
+        <h1 className="font-display text-4xl md:text-5xl font-extrabold tracking-tight text-ink mb-3 text-balance">
+          Find your book
         </h1>
-        <p className="text-muted-foreground text-base">
-          Answer 4 quick questions and we'll match you to the right personal
+        <p className="text-muted-foreground text-[17px] leading-relaxed">
+          Answer 4 quick questions and we&apos;ll match you to the right personal
           finance book.
         </p>
       </div>
 
       {phase === "wizard" && (
-        <RecommenderWizard onComplete={handleComplete} />
+        <div className="bg-card border-2 border-border rounded-[24px] p-7 md:p-9 shadow-card">
+          <RecommenderWizard onComplete={handleComplete} />
+        </div>
       )}
 
       {phase === "result" && result && (
@@ -52,15 +57,15 @@ export default function RecommenderPage() {
       )}
 
       {phase === "no-match" && (
-        <div className="py-16 space-y-4">
-          <p className="text-muted-foreground">
-            We couldn't find a strong match — try adjusting your answers.
+        <div className="bg-card border-2 border-border rounded-[24px] p-9 shadow-card space-y-4">
+          <p className="text-muted-foreground text-[15px]">
+            We couldn&apos;t find a strong match — try adjusting your answers.
           </p>
           <button
             onClick={handleReset}
-            className="text-sm text-accent underline underline-offset-2 hover:opacity-80 transition-opacity"
+            className="text-sm font-bold text-ink underline decoration-orange decoration-2 underline-offset-2 hover:text-accent transition-colors"
           >
-            Start over
+            ← Start over
           </button>
         </div>
       )}

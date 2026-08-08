@@ -1,76 +1,82 @@
+import type { CSSProperties } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Book } from "@/lib/data";
+import { categoryBg, categoryTint, POP_SHADOWS, TILTS } from "@/lib/ui";
 
 interface BookCardProps {
   book: Book;
   variant?: "default" | "compact";
+  index?: number;
 }
 
-const categoryColors: Record<string, string> = {
-  Investing: "bg-blue-900/40 text-blue-300",
-  Budgeting: "bg-green-900/40 text-green-300",
-  Mindset: "bg-purple-900/40 text-purple-300",
-  "Real Estate": "bg-orange-900/40 text-orange-300",
-  Business: "bg-red-900/40 text-red-300",
-};
-
-export default function BookCard({ book, variant = "default" }: BookCardProps) {
-  const categoryClass = categoryColors[book.category] ?? "bg-muted text-muted-foreground";
-
+export default function BookCard({ book, variant = "default", index = 0 }: BookCardProps) {
   if (variant === "compact") {
     return (
       <Link href={`/books/${book.slug}`} className="flex items-center gap-3 group">
-        <div className="w-10 h-14 rounded flex-shrink-0 overflow-hidden relative" style={{ backgroundColor: book.coverColor }}>
+        <div
+          className="w-10 h-14 rounded-md flex-shrink-0 overflow-hidden relative border-2 border-border"
+          style={{ backgroundColor: book.coverColor }}
+        >
           <Image src={book.coverImage} alt={book.title} fill className="object-cover" sizes="40px" />
         </div>
         <div>
-          <p className="text-sm font-medium text-foreground group-hover:text-accent transition-colors line-clamp-1">
+          <p className="text-sm font-bold text-ink group-hover:text-accent transition-colors line-clamp-1">
             {book.title}
           </p>
-          <p className="text-xs text-muted-foreground">{book.author}</p>
+          <p className="text-xs text-subtle">{book.author}</p>
         </div>
       </Link>
     );
   }
 
-  return (
-    <Link
-      href={`/books/${book.slug}`}
-      className="group flex gap-5 bg-card border border-border rounded-lg overflow-hidden hover:border-accent/40 transition-colors p-4"
-    >
-      {/* Portrait cover — left */}
-      <div
-        className="flex-shrink-0 w-20 relative rounded overflow-hidden self-start"
-        style={{ backgroundColor: book.coverColor, aspectRatio: "2/3" }}
-      >
-        <Image
-          src={book.coverImage}
-          alt={book.title}
-          fill
-          className="object-contain group-hover:scale-105 transition-transform duration-300"
-          sizes="80px"
-        />
-      </div>
+  const pop = POP_SHADOWS[index % POP_SHADOWS.length];
+  const tilt = TILTS[index % TILTS.length];
 
-      {/* Text — right */}
-      <div className="flex flex-col justify-between py-1 min-w-0">
-        <div>
-          <span className={`inline-block text-xs px-2 py-0.5 rounded-full mb-2 ${categoryClass}`}>
-            {book.category}
-          </span>
-          <h3 className="font-serif text-lg font-bold text-foreground group-hover:text-accent transition-colors leading-tight mb-1">
-            {book.title}
-          </h3>
-          <p className="text-sm text-muted-foreground mb-2">{book.author}</p>
-          <p className="text-sm text-muted-foreground line-clamp-3 leading-relaxed">{book.description}</p>
+  return (
+    <article
+      className="card-pop bg-card border-2 border-border rounded-[20px] p-5 flex flex-col"
+      style={{ "--pop": pop, "--tilt": tilt } as CSSProperties}
+    >
+      {/* Framed cover */}
+      <Link
+        href={`/books/${book.slug}`}
+        className="flex justify-center border-2 border-border rounded-[14px] py-5 mb-4"
+        style={{ backgroundColor: categoryTint(book.category) }}
+      >
+        <div
+          className="relative w-[88px] h-[132px] rounded-[12px] overflow-hidden border-2 border-border"
+          style={{ backgroundColor: book.coverColor }}
+        >
+          <Image src={book.coverImage} alt={book.title} fill className="object-cover" sizes="88px" />
         </div>
-        <div className="flex items-center gap-1 mt-3">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <span key={i} className={`text-xs ${i < book.rating ? "text-accent" : "text-muted"}`}>★</span>
-          ))}
-        </div>
-      </div>
-    </Link>
+      </Link>
+
+      <span
+        className="self-start inline-block border-2 border-border rounded-full text-[10.5px] font-bold px-2.5 py-1 mb-2.5"
+        style={{ backgroundColor: categoryBg(book.category) }}
+      >
+        {book.category}
+      </span>
+
+      <Link href={`/books/${book.slug}`}>
+        <h3 className="font-display text-lg font-extrabold tracking-tight text-ink leading-tight mb-0.5 hover:text-accent transition-colors">
+          {book.title}
+        </h3>
+      </Link>
+      <p className="text-[13px] text-subtle mb-2.5">{book.author}</p>
+      <p className="text-[13.5px] leading-relaxed text-muted-foreground mb-4 line-clamp-3">
+        {book.description}
+      </p>
+
+      <a
+        href={book.amazonUrl}
+        target="_blank"
+        rel="noopener noreferrer sponsored"
+        className="mt-auto block text-center bg-ink text-background font-bold text-[13.5px] py-3 rounded-[12px] transition-colors hover:bg-accent"
+      >
+        Get it on Amazon ↗
+      </a>
+    </article>
   );
 }

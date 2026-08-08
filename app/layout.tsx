@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className="bg-background text-foreground antialiased">
         <Navbar />
-        <main className="pt-16">{children}</main>
+        <main className="pt-[73px]">{children}</main>
         <Footer />
         <Analytics />
       </body>

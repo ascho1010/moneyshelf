@@ -71,22 +71,23 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <Link href="/articles" className="text-sm text-muted-foreground hover:text-foreground transition-colors mb-10 inline-block">
+      <Link href="/articles" className="inline-block text-sm font-bold text-ink underline decoration-orange decoration-2 underline-offset-4 hover:text-accent transition-colors mb-10">
         ← Back to Articles
       </Link>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mt-4">
         {/* Article body */}
         <div className="lg:col-span-2">
-          <div className="flex items-center gap-3 mb-6 text-xs text-muted-foreground">
-            <span>{date}</span>
-            <span>·</span>
-            <span>{article.readTime} min read</span>
+          <div className="flex items-center gap-2 mb-6">
+            <span className="inline-block bg-yellow border-2 border-border rounded-full text-[10.5px] font-bold px-2.5 py-1">
+              {article.readTime} min read
+            </span>
+            <span className="text-xs text-subtle">{date}</span>
           </div>
-          <h1 className="font-serif text-4xl md:text-5xl font-black text-foreground leading-tight mb-8">
+          <h1 className="font-display text-4xl md:text-5xl font-extrabold tracking-tight text-ink leading-tight mb-8 text-balance">
             {article.title}
           </h1>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-10 italic border-l-2 border-accent pl-5">
+          <p className="text-lg text-ink leading-relaxed mb-10 border-l-4 border-orange pl-5 font-medium">
             {article.excerpt}
           </p>
           <div
@@ -98,32 +99,34 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
         {/* Sidebar: referenced books */}
         <div className="lg:col-span-1">
           <div className="sticky top-24">
-            <p className="text-xs uppercase tracking-widest text-accent mb-5">Referenced in this article</p>
+            <p className="inline-block bg-mint border-2 border-border rounded-full text-xs font-bold uppercase tracking-wide px-3 py-1.5 mb-5">
+              Referenced here
+            </p>
             <div className="flex flex-col gap-4">
               {books.map((book) => (
-                <div key={book.slug} className="border border-border rounded-lg p-4">
+                <div key={book.slug} className="bg-card border-2 border-border rounded-[16px] p-5 shadow-card">
                   <div
-                    className="w-12 h-16 rounded mb-3 relative overflow-hidden"
+                    className="w-14 h-20 rounded-[10px] mb-3 relative overflow-hidden border-2 border-border"
                     style={{ backgroundColor: book.coverColor }}
                   >
-                    <Image src={book.coverImage} alt={book.title} fill className="object-cover" sizes="48px" />
+                    <Image src={book.coverImage} alt={book.title} fill className="object-cover" sizes="56px" />
                   </div>
-                  <Link href={`/books/${book.slug}`} className="font-serif text-base font-bold text-foreground hover:text-accent transition-colors leading-tight block mb-1">
+                  <Link href={`/books/${book.slug}`} className="font-display text-base font-extrabold tracking-tight text-ink hover:text-accent transition-colors leading-tight block mb-1">
                     {book.title}
                   </Link>
-                  <p className="text-xs text-muted-foreground mb-4">{book.author}</p>
+                  <p className="text-xs text-subtle mb-4">{book.author}</p>
                   <a
                     href={book.amazonUrl}
                     target="_blank"
-                    rel="noopener noreferrer"
-                    className="block w-full text-center bg-accent/10 text-accent border border-accent/30 text-xs font-semibold px-4 py-2 rounded hover:bg-accent/20 transition-colors"
+                    rel="noopener noreferrer sponsored"
+                    className="pop block w-full text-center bg-accent text-background border-2 border-border text-xs font-bold px-4 py-2.5 rounded-[10px]"
                   >
-                    Buy on Amazon →
+                    Get it on Amazon ↗
                   </a>
                 </div>
               ))}
             </div>
-            <p className="text-xs text-muted-foreground mt-4">
+            <p className="text-xs text-subtle mt-4">
               Affiliate links — we earn a small commission at no cost to you.
             </p>
           </div>

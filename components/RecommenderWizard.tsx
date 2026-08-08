@@ -72,22 +72,22 @@ export default function RecommenderWizard({ onComplete }: RecommenderWizardProps
   return (
     <div className="space-y-8">
       {/* Progress bar */}
-      <div className="flex gap-1.5">
+      <div className="flex gap-2">
         {STEPS.map((_, i) => (
           <div
             key={i}
-            className={`h-1 flex-1 rounded-full transition-colors duration-300 ${
+            className={`h-2.5 flex-1 rounded-full border-2 border-border transition-colors duration-300 ${
               i <= step ? "bg-accent" : "bg-muted"
             }`}
           />
         ))}
       </div>
 
-      <p className="text-xs uppercase tracking-widest text-muted-foreground">
+      <p className="inline-block bg-yellow border-2 border-border rounded-full text-xs font-bold uppercase tracking-wide px-3 py-1.5">
         Question {step + 1} of {STEPS.length}
       </p>
 
-      <h2 className="font-serif text-2xl md:text-3xl text-foreground leading-snug">
+      <h2 className="font-display text-2xl md:text-3xl font-extrabold tracking-tight text-ink leading-snug text-balance">
         {current.question}
       </h2>
 
@@ -96,7 +96,7 @@ export default function RecommenderWizard({ onComplete }: RecommenderWizardProps
           <button
             key={opt.value}
             onClick={() => handleSelect(opt.value)}
-            className="text-left px-5 py-3.5 rounded border border-border text-sm text-foreground hover:border-accent/60 hover:text-accent transition-colors"
+            className="pop text-left px-5 py-3.5 rounded-[14px] border-2 border-border bg-card text-[15px] font-semibold text-ink hover:bg-muted transition-colors"
           >
             {opt.label}
           </button>
