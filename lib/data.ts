@@ -768,25 +768,13 @@ export const articles: Article[] = [
       <p>The best financial gift you can give a child isn't a college fund. It's a framework for thinking about money before they ever need to think about it seriously.</p>
     `,
   },
-];
-
-// ─────────────────────────────────────────────────────────────────────────
-// Scaffolded drafts. Structure, metadata, book links and target keywords are
-// set; the prose is yours to write. Flip `draft: false` to publish — that
-// alone adds it to the listing, the sitemap, and search results.
-//
-// Each <p class="draft-note"> is an author prompt, not copy. Replace them.
-// ─────────────────────────────────────────────────────────────────────────
-export const draftArticles: Article[] = [
   {
     slug: "best-books-for-fire",
     title: "The Best Books for FIRE, Ranked by Where You Are on the Path",
     excerpt:
       "Financial independence isn't one journey — it's four or five different problems depending on where you're standing. Here's which book solves the one in front of you.",
     publishedAt: "2026-08-07",
-    readTime: 11,
-    targetKeyword: "best FIRE books / best books for financial independence",
-    draft: true,
+    readTime: 8,
     bookSlugs: [
       "simple-path-to-wealth",
       "your-money-or-your-life",
@@ -796,19 +784,28 @@ export const draftArticles: Article[] = [
       "set-for-life",
     ],
     body: `
-      <p class="draft-note">HOOK: most "best FIRE books" lists are undifferentiated rankings. The angle here is sequencing — the right book depends on which stage you're at. Say that in the first two sentences.</p>
+      <p>Almost every "best FIRE books" list is a ranking, which is the wrong shape for the problem. Financial independence isn't one challenge — it's a sequence of them. The book that changes your life in year one is nearly useless in year six, and the book with the math you eventually need will bore you to death before you're ready for it.</p>
+      <p>So here's the shelf organized by stage instead. Find the sentence that describes where you actually are, and read that book next.</p>
       <h2>Stage 1: You don't believe it's possible yet</h2>
-      <p class="draft-note">Your Money or Your Life + Playing with FIRE. The job of these books is belief and motivation, not tactics. Rieckens is the one to hand someone who thinks FIRE is a fantasy.</p>
-      <h2>Stage 2: You're convinced but don't know the mechanics</h2>
-      <p class="draft-note">The Simple Path to Wealth. Cover the index-fund thesis and why the boring answer is the right one. Link through to the index funds article.</p>
+      <p>Most people encounter FIRE as an internet abstraction — a stranger claiming they retired at 34 — and quietly file it under "must have had help." The books that matter here aren't tactical. Their job is to make the idea feel real.</p>
+      <p><em>Your Money or Your Life</em> is the origin text, and its central move is a reframe: money is life energy. You trade hours of your finite life for dollars, which means every purchase has a price measured in hours, not currency. Once you've calculated your real hourly wage — after commuting, after the clothes, after the decompression time — the arithmetic of spending changes permanently.</p>
+      <p><em>Playing with FIRE</em> does the opposite job, and does it well. Scott Rieckens documents his own family's attempt in real time: the arguments with his wife, the Coronado lifestyle they gave up, the parts that didn't work. It's the least theoretical book on this list, and it's the one to hand someone who thinks FIRE requires a software salary and no children.</p>
+      <h2>Stage 2: You believe it, but the mechanics are fuzzy</h2>
+      <p>You're convinced. You don't know what to actually buy.</p>
+      <p><em>The Simple Path to Wealth</em> is the answer, and it's not close. JL Collins wrote it as a series of letters to his daughter, which forced a clarity most finance writing never achieves. The thesis fits in a sentence: avoid debt, spend less than you earn, invest the difference in low-cost broad-market index funds, and don't touch it.</p>
+      <p>What makes the book work isn't the strategy — that part is genuinely simple. It's that Collins spends most of his pages on the psychology of <em>not deviating</em>, because that's where people actually fail.</p>
       <h2>Stage 3: Your savings rate has hit a ceiling</h2>
-      <p class="draft-note">Financial Freedom (Sabatier). The pivot from cutting expenses to growing income. This is the stage most people get stuck at — worth the most words.</p>
+      <p>This is the stage where most people stall, and it's the one the FIRE canon historically underserved. You've cut what there is to cut. Your savings rate has plateaued. Optimizing further means arguing with yourself about groceries.</p>
+      <p>Grant Sabatier's <em>Financial Freedom</em> is the pivot. His argument is that expenses have a floor — you can only cut to zero — while income has no ceiling, so past a certain point the entire optimization should shift to earning. The book covers side income, salary negotiation, and building skills that compound, and it's noticeably more useful than another chapter on frugality.</p>
       <h2>Stage 4: You want the actual math</h2>
-      <p class="draft-note">Quit Like a Millionaire. 4% rule, sequence-of-returns risk, geographic arbitrage. Link to the 4% rule article once it's live.</p>
-      <h2>Stage 5: You want to accelerate with real estate or house hacking</h2>
-      <p class="draft-note">Set for Life + The Book on Rental Property Investing.</p>
+      <p>Eventually the question stops being "how do I save more" and becomes "how do I know when I can stop, and what happens if the market cooperates badly?"</p>
+      <p><em>Quit Like a Millionaire</em> is the most numerate book on the shelf. Kristy Shen and Bryce Leung are engineers, and it shows — they work through withdrawal rates, sequence-of-returns risk, and the specific mechanisms they used to survive a downturn without selling at the bottom. If you want the FIRE math with its assumptions visible rather than hidden, this is it.</p>
+      <h2>Stage 5: You want to accelerate with property</h2>
+      <p>Index funds are the default path, not the only one. If you're drawn to real estate, two books do the practical work.</p>
+      <p><em>Set for Life</em> by Scott Trench is about the first phase — house hacking, aggressive savings, and turning a normal salary into a launchpad. <em>The Book on Rental Property Investing</em> by Brandon Turner is the operational manual: deal analysis, financing, screening tenants, and the unglamorous arithmetic of cash flow that decides whether a rental is an asset or a second job.</p>
       <h2>If you only read one</h2>
-      <p class="draft-note">Pick one and commit to it. A hedge here undermines the whole piece.</p>
+      <p>Read <em>The Simple Path to Wealth</em>. It's the shortest distance between not knowing what to do and doing something correct, and the strategy it describes is the one most people should follow regardless of which stage they're in.</p>
+      <p>The rest of this list is optimization. Optimization only matters once you've started.</p>
     `,
   },
   {
@@ -817,24 +814,31 @@ export const draftArticles: Article[] = [
     excerpt:
       "The FIRE community has splintered into half a dozen variants, and people routinely pursue the wrong one for years. Here's what each actually means — and the math that separates them.",
     publishedAt: "2026-08-07",
-    readTime: 9,
-    targetKeyword: "coast FIRE vs barista FIRE / types of FIRE explained",
-    draft: true,
+    readTime: 7,
     bookSlugs: ["playing-with-fire", "quit-like-a-millionaire", "your-money-or-your-life"],
     body: `
-      <p class="draft-note">HOOK: the variants aren't lifestyle labels, they're different target numbers. Choosing the wrong one costs years. Lead with that.</p>
+      <p>The FIRE variants get talked about like personality types, which is why so many people chase the wrong one. They aren't lifestyles. They're different target numbers, and confusing them can cost you years — either working longer than you needed to, or quitting on a number that was never going to hold.</p>
       <h2>The one number underneath all of them</h2>
-      <p class="draft-note">Annual spending × 25. Every variant is a modification of this. Establish it before the taxonomy or nothing else lands.</p>
+      <p>Every variant is a modification of a single calculation: your annual spending multiplied by 25.</p>
+      <p>That multiplier is the inverse of a 4% withdrawal rate. Spend $40,000 a year, and the base target is $1 million. Spend $80,000, and it's $2 million. Notice which side of that equation you control most directly — your spending sets your target, and it does so with a 25× multiplier attached. A $500/month expense you eliminate permanently is $150,000 you never have to accumulate.</p>
+      <p>Every label below is just a different answer to "what counts as my annual spending, and am I funding all of it?"</p>
       <h2>Lean FIRE</h2>
-      <p class="draft-note">Define, give a worked example with real numbers, state who it suits and the failure mode (no margin for a bad decade).</p>
+      <p>A deliberately small target, built on a low spending number — often under $40,000 a year for a household. The appeal is speed: a smaller number arrives years sooner.</p>
+      <p>The failure mode is margin. A lean number assumes your expenses stay lean, and it leaves little slack for a health event, a family obligation, or a decade of poor returns arriving early. Lean FIRE works best for people who genuinely prefer a simple life, not for those treating frugality as a temporary sprint.</p>
       <h2>Fat FIRE</h2>
-      <p class="draft-note">Same structure. Failure mode: the target keeps moving.</p>
+      <p>The opposite: financial independence without lifestyle compromise, typically built on six-figure annual spending and a target north of $2.5 million.</p>
+      <p>The failure mode here is that the target moves. Because Fat FIRE is defined by maintaining a lifestyle rather than by a fixed number, lifestyle inflation quietly raises the goalpost — and it's remarkably easy to spend a decade earning well and never actually arriving.</p>
       <h2>Coast FIRE</h2>
-      <p class="draft-note">The most misunderstood one. Show the compounding math — invest enough early, then stop contributing. Worth a small table.</p>
+      <p>The most misunderstood variant, and the most useful for people in their twenties and thirties.</p>
+      <p>Coast FIRE means you've invested enough that compounding alone will carry you to your full number by traditional retirement age — without another dollar contributed. You haven't stopped working. You've stopped <em>saving</em>. Your job now only needs to cover current expenses.</p>
+      <p>The power is in the timing. Money invested at 28 has decades to compound; money invested at 48 does not. Hitting Coast FIRE early buys something more immediately valuable than early retirement: the freedom to take the lower-paying job, go part-time, or leave the career that's grinding you down — without derailing the plan.</p>
       <h2>Barista FIRE</h2>
-      <p class="draft-note">Partial income, usually for health insurance. US-specific; say so.</p>
+      <p>A hybrid. You've saved enough that a modest part-time income covers the gap, so your portfolio isn't carrying the full load yet.</p>
+      <p>The name comes from a very American concern: health insurance. For workers in the US, employer coverage is often the binding constraint on leaving a job, and part-time roles that include benefits solve a problem that has nothing to do with the portfolio. Readers outside the US can generally ignore this variant's original logic, though the structure — partial income, partial withdrawal — still applies.</p>
       <h2>Which one you're actually chasing</h2>
-      <p class="draft-note">Close with a short diagnostic. Natural CTA to the recommender quiz.</p>
+      <p>Three questions usually settle it. What is your real annual spending, honestly measured rather than estimated? Would you rather arrive sooner with less margin, or later with more? And are you optimizing for never working again, or for not needing <em>this particular job</em>?</p>
+      <p>That last question is the one people get wrong most often. A lot of what looks like a desire to retire early is a desire to stop doing one specific thing — and Coast FIRE solves that years before full FIRE does.</p>
+      <p>Scott Rieckens' <em>Playing with FIRE</em> is good on the lifestyle trade-offs these choices actually require, and <em>Quit Like a Millionaire</em> is the better read if you want to pressure-test the numbers behind whichever variant you land on.</p>
     `,
   },
   {
@@ -843,9 +847,7 @@ export const draftArticles: Article[] = [
     excerpt:
       "Housel's book works because it treats money as behavior, not math. If that's what you loved, here's what actually scratches the same itch — and what only looks like it will.",
     publishedAt: "2026-08-07",
-    readTime: 8,
-    targetKeyword: "books like the psychology of money",
-    draft: true,
+    readTime: 7,
     bookSlugs: [
       "psychology-of-money",
       "thinking-in-bets",
@@ -855,76 +857,108 @@ export const draftArticles: Article[] = [
       "art-of-spending-money",
     ],
     body: `
-      <p class="draft-note">HOOK: name precisely WHY Housel worked — short chapters, stories over formulas, behavior over optimization. The recommendations only make sense against that.</p>
+      <p>Before recommending anything, it's worth naming why <em>The Psychology of Money</em> worked, because "books like it" means different things depending on which part got you.</p>
+      <p>Morgan Housel's book succeeded on three counts: short self-contained chapters, arguments carried by stories rather than formulas, and a central claim that doing well with money has more to do with behavior than intelligence. Different follow-ups deliver different pieces of that.</p>
       <h2>If you loved the storytelling</h2>
-      <p class="draft-note">The Millionaire Next Door — research told as narrative.</p>
-      <h2>If you loved the decision-making chapters</h2>
-      <p class="draft-note">Thinking in Bets. Duke goes deeper on separating decision quality from outcome quality.</p>
+      <p><em>The Millionaire Next Door</em> is the closest match in spirit. Thomas Stanley's research found that the people who actually accumulate wealth in America mostly look nothing like the cultural image of wealth — they drive used cars, live in ordinary neighborhoods, and are frequently outspent by neighbors earning far less.</p>
+      <p>Like Housel, Stanley is really writing about behavior. The difference is that his conclusions come from survey data rather than parables, which makes the same argument land with more evidential weight.</p>
+      <h2>If you loved the chapters on luck and risk</h2>
+      <p>Housel's best chapter argues that outcomes are shaped by forces you didn't control, and that judging decisions by their results is a trap. Annie Duke's <em>Thinking in Bets</em> is an entire book on that idea.</p>
+      <p>Duke was a professional poker player, and her core concept — "resulting," the error of grading a decision by whether it happened to work out — is directly applicable to investing. A good decision can lose money. A terrible one can make you rich. Most people learn the wrong lesson from both, and then repeat it.</p>
       <h2>If you want to change behavior, not just understand it</h2>
-      <p class="draft-note">Atomic Habits. Housel diagnoses; Clear gives the mechanism.</p>
-      <h2>If the "enough" chapter hit hardest</h2>
-      <p class="draft-note">Die With Zero + The Art of Spending Money.</p>
-      <h2>What NOT to read next</h2>
-      <p class="draft-note">This section is what makes the piece trustworthy rather than a list. Name a popular title that superficially resembles Housel and explain why it disappoints.</p>
-      <p class="draft-note">TEMPLATE NOTE: this structure repeats for any popular book — "books like Rich Dad Poor Dad", "books like I Will Teach You to Be Rich". Same five sections.</p>
+      <p>This is the honest gap in Housel's book: it's a superb diagnosis with relatively little prescription. You finish it understanding why you behave badly with money, and without a mechanism for behaving differently.</p>
+      <p><em>Atomic Habits</em> is that mechanism. James Clear isn't writing about money, but the machinery transfers cleanly — automate the saving, make the good behavior the default, and build an identity ("I'm someone who invests every month") rather than relying on willpower. Read as a pair, Housel explains the problem and Clear supplies the fix.</p>
+      <h2>If the chapter on "enough" hit hardest</h2>
+      <p>For a lot of readers the most uncomfortable idea in the book is that the goalposts move — that people who could stop, don't.</p>
+      <p>Bill Perkins' <em>Die With Zero</em> pushes that thought considerably further, arguing that dying with a large unspent balance represents a failure of planning: unconverted life experience. It's a genuine counterweight to accumulation-focused finance writing, and it'll irritate you productively.</p>
+      <p>Housel's own follow-up, <em>The Art of Spending Money</em>, covers similar territory from the other direction — treating spending as a skill most people never develop.</p>
+      <h2>What not to read next</h2>
+      <p>Housel readers are often pointed toward the motivational end of the finance shelf — the mindset-and-mentors genre, with <em>Rich Dad Poor Dad</em> as the usual gateway. It's a reasonable-looking recommendation and generally a disappointing one.</p>
+      <p>Those books are parables written to inspire action, and their specifics are frequently contested or unfalsifiable. Housel's appeal is the opposite: careful, evidence-anchored, and comfortable admitting uncertainty. Readers who go looking for more of that and land in the motivational aisle usually bounce off, then conclude they don't like finance books — when in fact they liked one particular kind.</p>
+      <p>If you want more Housel, stay with writers who show their evidence.</p>
     `,
   },
   {
     slug: "simple-path-vs-bogleheads-guide",
     title: "The Simple Path to Wealth vs. The Bogleheads' Guide: Which Should You Read First?",
     excerpt:
-      "Both preach low-cost index investing. They are not interchangeable, and the wrong one first is why plenty of people bounce off index investing entirely.",
+      "Both preach low-cost index investing. They are not interchangeable, and reading the wrong one first is why plenty of people bounce off index investing entirely.",
     publishedAt: "2026-08-07",
-    readTime: 7,
-    targetKeyword: "simple path to wealth vs bogleheads guide",
-    draft: true,
+    readTime: 6,
     bookSlugs: [
       "simple-path-to-wealth",
       "bogleheads-guide-to-investing",
       "little-book-common-sense-investing",
     ],
     body: `
-      <p class="draft-note">HOOK: state the verdict in the first paragraph. Comparison readers are deciding a purchase — don't bury it.</p>
+      <p>These two books agree on almost everything that matters: costs destroy returns, active management underperforms, broad diversification wins, and the hardest part is sitting still. They are still very different books, and the order you read them in matters more than most people expect.</p>
       <h2>The short answer</h2>
-      <p class="draft-note">One sentence each on who should pick which. Everything after is support.</p>
+      <p>If you have not started investing yet, read <em>The Simple Path to Wealth</em> first. If you are already invested and your questions have become logistical — which account, which allocation, what about taxes — start with <em>The Bogleheads' Guide to Investing</em>.</p>
       <h2>What The Simple Path to Wealth does better</h2>
-      <p class="draft-note">Voice, momentum, letters-to-a-daughter framing. Gets people to actually act.</p>
+      <p>It gets people to act. JL Collins wrote it as letters to his daughter, and that framing does real work: it's warm, opinionated, and written by one person with a clear point of view. You finish it knowing exactly what to do on Monday morning.</p>
+      <p>It's also unusually good on the emotional side of investing — what a crash feels like, and why the correct response is almost always to do nothing. Collins' "F-you money" framing has stuck around for a reason: it connects investing to something people actually want, which is optionality.</p>
+      <p>The trade-off is scope. It's a book about one strategy, told persuasively. That's a feature at the start and a limitation later.</p>
       <h2>What The Bogleheads' Guide does better</h2>
-      <p class="draft-note">Breadth — asset location, tax efficiency, account placement. Reference material rather than persuasion.</p>
-      <h2>Where they disagree</h2>
-      <p class="draft-note">The most valuable section. Portfolio complexity, bond allocation, international exposure. Be specific and fair.</p>
-      <h2>Reading them in order</h2>
-      <p class="draft-note">Recommend a sequence and mention where Bogle's own Little Book fits.</p>
-      <p class="draft-note">TEMPLATE NOTE: repeatable for any two overlapping books on the shelf.</p>
+      <p>Breadth and durability as reference material. Written by long-time members of the Bogleheads community, it covers the territory Collins deliberately skips: asset allocation across account types, tax efficiency, where to hold which assets, insurance, and estate basics.</p>
+      <p>It reads more like a well-organized manual than a narrative, which makes it less compelling on a first read and considerably more useful on the fifth. It's the one you'll still be pulling off the shelf in five years to check something.</p>
+      <h2>Where they actually disagree</h2>
+      <p>Two differences are worth knowing before you pick a side.</p>
+      <p>The first is portfolio complexity. Collins is a strong advocate for radical simplicity — a total US stock market fund does the job during accumulation, with bonds added later. The Bogleheads material is more conventionally diversified, generally treating international exposure as a standard component rather than an optional one. Collins argues large US companies already earn substantially abroad; the Bogleheads position is that this isn't the same as owning foreign markets directly. Both positions are defensible and the gap between outcomes is smaller than the volume of the argument suggests.</p>
+      <p>The second is tone toward the reader. Collins tells you what to do. The Bogleheads' Guide lays out options and trade-offs. Which you prefer says more about how you like to be taught than about which is correct.</p>
+      <h2>Read them in this order</h2>
+      <p>Collins first, for conviction and a plan you'll actually execute. The Bogleheads' Guide second, once you have money invested and real questions about optimization. If you want the original argument in its most compressed form, Bogle's own <em>The Little Book of Common Sense Investing</em> sits underneath both and can be read in an afternoon.</p>
+      <p>What you should not do is read all three before investing anything. The most expensive mistake in this entire category isn't picking the wrong book — it's spending a year reading instead of starting.</p>
     `,
   },
   {
     slug: "four-percent-rule-stress-tested",
     title: "The 4% Rule, Stress-Tested: What the Research Actually Says",
     excerpt:
-      "The most quoted number in FIRE comes from a 1994 paper about a specific portfolio over a specific period. Here's what Bengen and the Trinity Study actually concluded — and where the rule breaks.",
+      "The most quoted number in FIRE comes from a 1994 paper about a specific portfolio over a specific period. Here's what that research actually concluded — and where the rule starts to break.",
     publishedAt: "2026-08-07",
-    readTime: 12,
-    targetKeyword: "is the 4% rule safe / 4 percent rule explained",
-    draft: true,
+    readTime: 9,
     bookSlugs: ["quit-like-a-millionaire", "your-money-or-your-life", "just-keep-buying"],
     body: `
-      <p class="draft-note">HOOK: nearly everyone quoting the 4% rule has not read the source. Say what it actually claimed — and what it never claimed. This is the credibility piece; accuracy matters more than pace.</p>
+      <p>The 4% rule is the most repeated number in financial independence and one of the least read. It has become shorthand for "the amount you can safely withdraw forever," which is not what the underlying research claimed, and not a claim its authors would have made.</p>
+      <p>It's worth knowing what the studies actually tested, because the gap between the finding and the folklore is where people get hurt.</p>
       <h2>Where the number came from</h2>
-      <p class="draft-note">Bengen 1994, then the Trinity Study. Be precise: 30-year horizon, specific stock/bond mix, US historical data. Cite properly.</p>
+      <p>In 1994, financial adviser William Bengen published an analysis in the <em>Journal of Financial Planning</em> asking a narrow question: looking at US market history, what is the highest starting withdrawal rate that would have survived every 30-year retirement window, including the worst ones?</p>
+      <p>His answer was roughly 4%. Withdraw 4% of the portfolio in year one, adjust that dollar amount for inflation each year afterward, hold a substantial stock allocation, and no historical 30-year period would have exhausted the money.</p>
+      <p>A few years later, three professors at Trinity University ran a related study across various stock-and-bond mixes and time horizons, reporting success rates rather than a single safe maximum. Stock-heavy portfolios at a 4% withdrawal rate came through the great majority of 30-year periods intact. That paper is where the "Trinity Study" shorthand comes from.</p>
       <h2>What it never claimed</h2>
-      <p class="draft-note">Not a guarantee, not inflation-proof in every scenario, not designed for 50-year retirements — which is exactly what FIRE requires.</p>
+      <p>Four things, all of which get lost in translation.</p>
+      <p>It was never a guarantee. It was a backtest — a description of what would have survived history, not a promise about the future. "No 30-year period failed" and "no 30-year period can fail" are very different statements.</p>
+      <p>It was built on <strong>30 years</strong>. That's a conventional retirement at 65. Someone retiring at 40 is planning for a horizon roughly twice as long, and the failure rate climbs meaningfully as the horizon extends. The single most common misuse of the 4% rule is applying a 30-year finding to a 50-year problem.</p>
+      <p>It used US market data. The twentieth-century United States was among the best-performing markets in the world, and building a rule on the winner's history embeds an optimistic assumption that's easy to miss.</p>
+      <p>And it assumed rigid behavior — the same inflation-adjusted withdrawal every year regardless of what markets did. Almost nobody actually behaves that way, which cuts both ways: it makes the test conservative, but it also means the number doesn't describe how real retirees spend.</p>
       <h2>Sequence-of-returns risk</h2>
-      <p class="draft-note">The real danger. A bad first five years is materially different from a bad last five. Worth a concrete worked example.</p>
-      <h2>What breaks it</h2>
-      <p class="draft-note">Early-retirement horizons, non-US markets, high fees, and rigid spending. Shen &amp; Leung's yield shield and cash cushion belong here.</p>
+      <p>This is the mechanism that makes withdrawal rates dangerous, and it's the part worth genuinely understanding.</p>
+      <p>Two retirees can experience identical average returns over thirty years and end up in completely different places, purely because of the <em>order</em> those returns arrived in. A bad decade at the start is far more damaging than a bad decade at the end.</p>
+      <p>The reason is that withdrawals during a downturn force you to sell more shares to raise the same amount of cash, permanently shrinking the base that has to recover. The portfolio can be structurally crippled before the market turns around. The same crash arriving in year 25, after decades of compounding, is often survivable.</p>
+      <p>Averages hide this completely, which is why "the market returns about 10% a year" is such a misleading way to plan.</p>
+      <h2>What breaks it for early retirees</h2>
+      <p>Long horizons, as covered. Fees, which come directly off the top — a 1% advisory fee against a 4% withdrawal is a quarter of your income. Sequence risk in the first decade. And rigidity: a plan with no capacity to spend less in a bad year is a plan with no shock absorber.</p>
+      <p>Kristy Shen and Bryce Leung deal with this directly in <em>Quit Like a Millionaire</em>, and their contribution is practical rather than theoretical. They hold a cash cushion to fund living expenses during downturns without selling depressed assets, and they tilt toward income-producing holdings so more of the withdrawal comes from yield rather than from sales. Both are attempts to defuse sequence risk rather than pretend it away.</p>
       <h2>What to use instead</h2>
-      <p class="draft-note">Variable withdrawal, guardrails, flexibility. Land on something practical rather than just debunking.</p>
+      <p>Treat 4% as a planning heuristic for setting a target, not as an operating instruction for withdrawals.</p>
+      <p>For the target, it's genuinely useful: annual spending × 25 gives you a number to aim at. For the withdrawal phase, variable approaches hold up better — taking somewhat less after a bad year, somewhat more after a good one, or using guardrails that adjust spending when the portfolio drifts outside a set band.</p>
+      <p>Flexibility is doing the heavy lifting in every one of these. The ability to cut spending 10% in a bad year improves outcomes more than almost any portfolio adjustment, which is also the argument for not building your plan on a spending floor you can't go beneath.</p>
       <h2>So is it safe?</h2>
-      <p class="draft-note">Give a real answer. Hedging here wastes the whole article.</p>
+      <p>For a 30-year retirement with a stock-heavy portfolio and low fees, 4% has strong historical support and remains a reasonable starting point.</p>
+      <p>For a 50-year early retirement, treat it as an upper bound rather than a target. Many people planning for that horizon work from something closer to 3.25–3.5%, keep a cash buffer for the first decade, and — most importantly — retain the flexibility to earn or spend differently if the first five years go badly.</p>
+      <p>The rule isn't wrong. It's just far narrower than the way it gets quoted, and the distance between those two things is measured in years of someone's life.</p>
     `,
   },
 ];
+
+// ─────────────────────────────────────────────────────────────────────────
+// Scaffolded drafts. Structure, metadata, book links and target keywords are
+// set; the prose is yours to write. Flip `draft: false` to publish — that
+// alone adds it to the listing, the sitemap, and search results.
+//
+// Each <p class="draft-note"> is an author prompt, not copy. Replace them.
+// ─────────────────────────────────────────────────────────────────────────
+export const draftArticles: Article[] = [];
 
 export function getBook(slug: string): Book | undefined {
   return books.find((b) => b.slug === slug);
