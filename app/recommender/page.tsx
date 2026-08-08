@@ -1,33 +1,28 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { books } from "@/lib/data";
-import {
-  scoreBooks,
-  RecommenderInputs,
-  ScoredBook,
-} from "@/lib/recommender";
+import { scoreBooks, RecommenderInputs } from "@/lib/recommender";
 import RecommenderWizard from "@/components/RecommenderWizard";
-import BookRecommendationLockup from "@/components/BookRecommendationLockup";
 
-type Phase = "wizard" | "result" | "no-match";
+type Phase = "wizard" | "no-match";
 
 export default function RecommenderPage() {
+  const router = useRouter();
   const [phase, setPhase] = useState<Phase>("wizard");
-  const [result, setResult] = useState<ScoredBook | null>(null);
 
   function handleComplete(inputs: RecommenderInputs) {
     const scored = scoreBooks(inputs, books);
     if (scored.length === 0) {
       setPhase("no-match");
-    } else {
-      setResult(scored[0]);
-      setPhase("result");
+      return;
     }
+    // Send the result to its own URL so it can be linked and shared.
+    router.push(`/recommender/result/${scored[0].slug}`);
   }
 
   function handleReset() {
-    setResult(null);
     setPhase("wizard");
   }
 
@@ -50,10 +45,6 @@ export default function RecommenderPage() {
         <div className="bg-card border-2 border-border rounded-[24px] p-7 md:p-9 shadow-card">
           <RecommenderWizard onComplete={handleComplete} />
         </div>
-      )}
-
-      {phase === "result" && result && (
-        <BookRecommendationLockup book={result} label="Your top match" onReset={handleReset} />
       )}
 
       {phase === "no-match" && (
