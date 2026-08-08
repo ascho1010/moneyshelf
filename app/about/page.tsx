@@ -1,4 +1,21 @@
 import Link from "next/link";
+import { DEFAULT_OG_IMAGE } from "@/lib/site";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "MoneyShelf is built on one rule: every article and recommendation must be anchored to a real book. Here's how we choose them — and our affiliate disclosure.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About MoneyShelf",
+    description:
+      "Every article and recommendation is anchored to a real book. Here's how we choose them.",
+    url: "/about",
+    type: "website",
+    images: [DEFAULT_OG_IMAGE],
+  },
+};
 
 export default function AboutPage() {
   return (

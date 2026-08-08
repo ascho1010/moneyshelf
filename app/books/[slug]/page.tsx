@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { categoryBg, categoryTint } from "@/lib/ui";
+import { SITE_URL, SITE_NAME, absoluteUrl, bookPageTitle } from "@/lib/site";
 import type { Metadata } from "next";
 
 export async function generateMetadata({
@@ -13,9 +14,9 @@ export async function generateMetadata({
   const book = getBook(params.slug);
   if (!book) return {};
 
-  const title = `${book.title} by ${book.author} — MoneyShelf`;
+  const title = bookPageTitle(book.title, book.author);
   const description = book.description;
-  const url = `https://moneyshelf.xyz/books/${book.slug}`;
+  const path = `/books/${book.slug}`;
 
   return {
     title,
@@ -23,17 +24,17 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      url,
-      siteName: "MoneyShelf",
-      images: [{ url: `https://moneyshelf.xyz${book.coverImage}`, alt: book.title }],
+      url: path,
+      images: [{ url: book.coverImage, alt: `${book.title} book cover` }],
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: [book.coverImage],
     },
-    alternates: { canonical: url },
+    alternates: { canonical: path },
   };
 }
 
@@ -47,19 +48,48 @@ export default function BookPage({ params }: { params: { slug: string } }) {
 
   const relatedArticles = articles.filter((a) => a.bookSlugs.includes(book.slug));
 
+  const bookUrl = absoluteUrl(`/books/${book.slug}`);
+
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Book",
-    name: book.title,
-    author: { "@type": "Person", name: book.author },
-    description: book.description,
-    image: `https://moneyshelf.xyz${book.coverImage}`,
-    url: `https://moneyshelf.xyz/books/${book.slug}`,
-    offers: {
-      "@type": "Offer",
-      url: book.amazonUrl,
-      availability: "https://schema.org/InStock",
-    },
+    "@graph": [
+      {
+        "@type": "Book",
+        "@id": `${bookUrl}#book`,
+        name: book.title,
+        author: { "@type": "Person", name: book.author },
+        description: book.description,
+        genre: book.category,
+        image: absoluteUrl(book.coverImage),
+        url: bookUrl,
+        offers: {
+          "@type": "Offer",
+          url: book.amazonUrl,
+          availability: "https://schema.org/InStock",
+        },
+        // Our own editorial verdict — marked up as a Review by MoneyShelf
+        // rather than an aggregateRating, since it's a single first-party rating.
+        review: {
+          "@type": "Review",
+          reviewRating: {
+            "@type": "Rating",
+            ratingValue: book.rating,
+            bestRating: 5,
+            worstRating: 1,
+          },
+          author: { "@type": "Organization", name: SITE_NAME },
+          reviewBody: book.description,
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+          { "@type": "ListItem", position: 2, name: "Books", item: absoluteUrl("/books") },
+          { "@type": "ListItem", position: 3, name: book.title, item: bookUrl },
+        ],
+      },
+    ],
   };
 
   return (

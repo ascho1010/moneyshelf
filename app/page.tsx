@@ -1,8 +1,23 @@
 import Link from "next/link";
 import Image from "next/image";
+import type { Metadata } from "next";
 import { books, articles, getBooksForArticle } from "@/lib/data";
 import BookCard from "@/components/BookCard";
 import ArticleCard from "@/components/ArticleCard";
+import { SITE_NAME, SITE_TAGLINE, SITE_DESCRIPTION } from "@/lib/site";
+
+export const metadata: Metadata = {
+  // absolute → avoids the layout template appending "— MoneyShelf" twice
+  title: { absolute: `${SITE_NAME} — ${SITE_TAGLINE}` },
+  description: SITE_DESCRIPTION,
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: `${SITE_NAME} — ${SITE_TAGLINE}`,
+    description: SITE_DESCRIPTION,
+    url: "/",
+    type: "website",
+  },
+};
 
 export default function HomePage() {
   const featuredBooks = books.filter((b) => b.featured);

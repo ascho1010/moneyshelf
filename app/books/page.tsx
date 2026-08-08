@@ -1,21 +1,22 @@
 import { books } from "@/lib/data";
 import BookRecommendationLockup from "@/components/BookRecommendationLockup";
 import { categoryBg } from "@/lib/ui";
+import { DEFAULT_OG_IMAGE } from "@/lib/site";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Best Personal Finance Books — MoneyShelf",
+  title: "Best Personal Finance Books",
   description:
     "A curated shelf of the best personal finance books — on investing, budgeting, mindset, and building wealth. Every book selected for the quality of its ideas.",
   openGraph: {
-    title: "Best Personal Finance Books — MoneyShelf",
+    title: "Best Personal Finance Books",
     description:
       "A curated shelf of the best personal finance books — on investing, budgeting, mindset, and building wealth.",
-    url: "https://moneyshelf.xyz/books",
-    siteName: "MoneyShelf",
+    url: "/books",
     type: "website",
+    images: [DEFAULT_OG_IMAGE],
   },
-  alternates: { canonical: "https://moneyshelf.xyz/books" },
+  alternates: { canonical: "/books" },
 };
 
 const categories = ["All", "Investing", "Budgeting", "Mindset", "Real Estate", "Business"];

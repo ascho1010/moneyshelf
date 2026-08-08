@@ -2,6 +2,7 @@ import { articles, getArticle, getBooksForArticle } from "@/lib/data";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { SITE_URL, SITE_NAME, absoluteUrl, pageTitle } from "@/lib/site";
 import type { Metadata } from "next";
 
 export async function generateMetadata({
@@ -12,27 +13,25 @@ export async function generateMetadata({
   const article = getArticle(params.slug);
   if (!article) return {};
 
-  const title = `${article.title} — MoneyShelf`;
   const description = article.excerpt;
-  const url = `https://moneyshelf.xyz/articles/${article.slug}`;
+  const path = `/articles/${article.slug}`;
 
   return {
-    title,
+    title: pageTitle(article.title),
     description,
     openGraph: {
-      title,
+      title: article.title,
       description,
-      url,
-      siteName: "MoneyShelf",
+      url: path,
       type: "article",
       publishedTime: article.publishedAt,
     },
     twitter: {
       card: "summary_large_image",
-      title,
+      title: article.title,
       description,
     },
-    alternates: { canonical: url },
+    alternates: { canonical: path },
   };
 }
 
@@ -51,18 +50,45 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
     year: "numeric",
   });
 
+  const articleUrl = absoluteUrl(`/articles/${article.slug}`);
+
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Article",
-    headline: article.title,
-    description: article.excerpt,
-    datePublished: article.publishedAt,
-    url: `https://moneyshelf.xyz/articles/${article.slug}`,
-    publisher: {
-      "@type": "Organization",
-      name: "MoneyShelf",
-      url: "https://moneyshelf.xyz",
-    },
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": `${articleUrl}#article`,
+        headline: article.title,
+        description: article.excerpt,
+        datePublished: article.publishedAt,
+        dateModified: article.publishedAt,
+        url: articleUrl,
+        mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl },
+        image: absoluteUrl(`/articles/${article.slug}/opengraph-image`),
+        wordCount: article.body.replace(/<[^>]*>/g, " ").split(/\s+/).filter(Boolean).length,
+        author: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+        publisher: {
+          "@type": "Organization",
+          name: SITE_NAME,
+          url: SITE_URL,
+        },
+        // The books this piece is anchored to — reinforces the editorial rule.
+        mentions: books.map((b) => ({
+          "@type": "Book",
+          name: b.title,
+          author: { "@type": "Person", name: b.author },
+          url: absoluteUrl(`/books/${b.slug}`),
+        })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+          { "@type": "ListItem", position: 2, name: "Articles", item: absoluteUrl("/articles") },
+          { "@type": "ListItem", position: 3, name: article.title, item: articleUrl },
+        ],
+      },
+    ],
   };
 
   return (
