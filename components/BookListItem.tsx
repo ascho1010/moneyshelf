@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Book } from "@/lib/data";
+import AffiliateLink from "./AffiliateLink";
 
 interface BookListItemProps {
   book: Book;
@@ -59,14 +60,15 @@ export default function BookListItem({ book, index }: BookListItemProps) {
 
         {/* CTAs */}
         <div className="flex items-center gap-3 flex-wrap">
-          <a
+          <AffiliateLink
             href={book.amazonUrl}
-            target="_blank"
-            rel="noopener noreferrer sponsored"
+            bookSlug={book.slug}
+            bookTitle={book.title}
+            placement="book-list-item"
             className="inline-flex items-center gap-2 bg-accent text-background text-sm font-semibold px-4 py-2 rounded hover:bg-accent/90 transition-colors"
           >
             Buy on Amazon →
-          </a>
+          </AffiliateLink>
           <Link
             href={`/books/${book.slug}`}
             className="text-sm text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4"

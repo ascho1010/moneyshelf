@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Book } from "@/lib/data";
 import { categoryBg, categoryTint, POP_SHADOWS, TILTS } from "@/lib/ui";
+import AffiliateLink from "./AffiliateLink";
 
 interface BookCardProps {
   book: Book;
@@ -69,14 +70,15 @@ export default function BookCard({ book, variant = "default", index = 0 }: BookC
         {book.description}
       </p>
 
-      <a
+      <AffiliateLink
         href={book.amazonUrl}
-        target="_blank"
-        rel="noopener noreferrer sponsored"
+        bookSlug={book.slug}
+        bookTitle={book.title}
+        placement="book-card"
         className="mt-auto block text-center bg-ink text-background font-bold text-[13.5px] py-3 rounded-[12px] transition-colors hover:bg-accent"
       >
         Get it on Amazon ↗
-      </a>
+      </AffiliateLink>
     </article>
   );
 }

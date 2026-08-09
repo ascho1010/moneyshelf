@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { SITE_URL, SITE_NAME, absoluteUrl, pageTitle } from "@/lib/site";
+import AffiliateLink from "@/components/AffiliateLink";
 import type { Metadata } from "next";
 
 export async function generateMetadata({
@@ -163,14 +164,15 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
                     {book.title}
                   </Link>
                   <p className="text-xs text-subtle mb-4">{book.author}</p>
-                  <a
+                  <AffiliateLink
                     href={book.amazonUrl}
-                    target="_blank"
-                    rel="noopener noreferrer sponsored"
+                    bookSlug={book.slug}
+                    bookTitle={book.title}
+                    placement="article-sidebar"
                     className="pop block w-full text-center bg-accent text-background border-2 border-border text-xs font-bold px-4 py-2.5 rounded-[10px]"
                   >
                     Get it on Amazon ↗
-                  </a>
+                  </AffiliateLink>
                 </div>
               ))}
             </div>

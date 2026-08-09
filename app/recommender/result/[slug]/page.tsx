@@ -5,6 +5,7 @@ import { books, getBook } from "@/lib/data";
 import { categoryBg, categoryTint } from "@/lib/ui";
 import { absoluteUrl, pageTitle } from "@/lib/site";
 import ShareRow from "@/components/ShareRow";
+import AffiliateLink from "@/components/AffiliateLink";
 import type { Metadata } from "next";
 
 export async function generateStaticParams() {
@@ -100,14 +101,15 @@ export default function RecommenderResultPage({
             </p>
 
             <div className="flex flex-wrap gap-3">
-              <a
+              <AffiliateLink
                 href={book.amazonUrl}
-                target="_blank"
-                rel="noopener noreferrer sponsored"
+                bookSlug={book.slug}
+                bookTitle={book.title}
+                placement="quiz-result"
                 className="pop inline-block bg-accent text-background font-bold text-sm px-5 py-3 rounded-[12px] border-2 border-border"
               >
                 Get it on Amazon ↗
-              </a>
+              </AffiliateLink>
               <Link
                 href={`/books/${book.slug}`}
                 className="pop inline-block bg-card text-ink font-bold text-sm px-5 py-3 rounded-[12px] border-2 border-border"

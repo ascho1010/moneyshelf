@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/react";
+import GoogleTag from "@/components/GoogleTag";
 import {
   SITE_URL,
   SITE_NAME,
@@ -77,6 +78,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="pt-[73px]">{children}</main>
         <Footer />
         <Analytics />
+        <GoogleTag />
       </body>
     </html>
   );

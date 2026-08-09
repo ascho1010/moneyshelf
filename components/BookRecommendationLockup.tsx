@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Book } from "@/lib/data";
 import { categoryBg, categoryTint } from "@/lib/ui";
+import AffiliateLink from "./AffiliateLink";
 
 interface BookRecommendationLockupProps {
   book: Book & { matchReasons?: string[] };
@@ -95,14 +96,15 @@ export default function BookRecommendationLockup({
             </div>
           </div>
 
-          <a
+          <AffiliateLink
             href={book.amazonUrl}
-            target="_blank"
-            rel="noopener noreferrer sponsored"
+            bookSlug={book.slug}
+            bookTitle={book.title}
+            placement="lockup"
             className="pop block text-center bg-accent text-background font-bold text-sm px-5 py-3.5 rounded-[12px] border-2 border-border"
           >
             Get it on Amazon ↗
-          </a>
+          </AffiliateLink>
           <p className="text-xs text-subtle text-center">
             Affiliate link — we earn a small commission at no cost to you.
           </p>

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { categoryBg, categoryTint } from "@/lib/ui";
 import { SITE_URL, SITE_NAME, absoluteUrl, bookPageTitle } from "@/lib/site";
+import AffiliateLink from "@/components/AffiliateLink";
 import type { Metadata } from "next";
 
 export async function generateMetadata({
@@ -116,14 +117,15 @@ export default function BookPage({ params }: { params: { slug: string } }) {
               <Image src={book.coverImage} alt={book.title} fill className="object-cover" sizes="(max-width: 768px) 60vw, 220px" priority />
             </div>
           </div>
-          <a
+          <AffiliateLink
             href={book.amazonUrl}
-            target="_blank"
-            rel="noopener noreferrer sponsored"
+            bookSlug={book.slug}
+            bookTitle={book.title}
+            placement="book-detail"
             className="pop block w-full bg-accent text-background font-bold text-sm text-center px-6 py-4 rounded-[14px] border-2 border-border mb-3"
           >
             Get this book on Amazon ↗
-          </a>
+          </AffiliateLink>
           <p className="text-xs text-subtle text-center">
             Affiliate link — we earn a small commission at no cost to you.
           </p>
