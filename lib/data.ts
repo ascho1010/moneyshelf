@@ -10,6 +10,12 @@ export interface Book {
   coverColor: string; // fallback color
   featured: boolean;
   rating: number;
+  /**
+   * Hand-picked standouts. Cuts across categories — an editor favorite can be
+   * any category — so it's a separate flag rather than a category value, and
+   * distinct from `featured`, which drives the home page.
+   */
+  editorFavorite?: boolean;
 }
 
 export interface Article {
@@ -52,6 +58,7 @@ export const books: Book[] = [
     coverColor: "#1a3a2a",
     featured: true,
     rating: 5,
+    editorFavorite: true,
   },
   {
     slug: "i-will-teach-you-to-be-rich",
@@ -172,6 +179,7 @@ export const books: Book[] = [
     coverColor: "#1a1a3a",
     featured: false,
     rating: 5,
+    editorFavorite: true,
   },
   {
     slug: "money-for-couples",
@@ -312,6 +320,7 @@ export const books: Book[] = [
     coverColor: "#1a2a3a",
     featured: false,
     rating: 4,
+    editorFavorite: true,
   },
   {
     slug: "your-money-or-your-life",

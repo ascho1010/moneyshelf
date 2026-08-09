@@ -138,12 +138,19 @@ export default function BookPage({ params }: { params: { slug: string } }) {
 
         {/* Book info */}
         <div className="md:col-span-2">
-          <span
-            className="inline-block border-2 border-border rounded-full text-[11px] font-bold px-3 py-1 mb-4"
-            style={{ backgroundColor: categoryBg(book.category) }}
-          >
-            {book.category}
-          </span>
+          <div className="flex flex-wrap gap-2 mb-4">
+            <span
+              className="inline-block border-2 border-border rounded-full text-[11px] font-bold px-3 py-1"
+              style={{ backgroundColor: categoryBg(book.category) }}
+            >
+              {book.category}
+            </span>
+            {book.editorFavorite && (
+              <span className="inline-block bg-yellow border-2 border-border rounded-full text-[11px] font-bold px-3 py-1">
+                <span aria-hidden="true">★ </span>Editor favorite
+              </span>
+            )}
+          </div>
           <h1 className="font-display text-4xl md:text-5xl font-extrabold tracking-tight text-ink leading-tight mb-2 text-balance">
             {book.title}
           </h1>

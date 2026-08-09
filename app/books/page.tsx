@@ -1,6 +1,5 @@
 import { books } from "@/lib/data";
-import BookRecommendationLockup from "@/components/BookRecommendationLockup";
-import { categoryBg } from "@/lib/ui";
+import BookShelf from "@/components/BookShelf";
 import { DEFAULT_OG_IMAGE } from "@/lib/site";
 import type { Metadata } from "next";
 
@@ -18,8 +17,6 @@ export const metadata: Metadata = {
   },
   alternates: { canonical: "/books" },
 };
-
-const categories = ["All", "Investing", "Budgeting", "Mindset", "Real Estate", "Business"];
 
 export default function BooksPage() {
   return (
@@ -39,30 +36,8 @@ export default function BooksPage() {
         </p>
       </div>
 
-      {/* Category filters */}
-      <div className="flex flex-wrap gap-2.5 mb-14">
-        {categories.map((cat) => (
-          <span
-            key={cat}
-            className="text-[13px] font-bold px-4 py-2 rounded-full border-2 border-border cursor-default"
-            style={{ backgroundColor: cat === "All" ? "#221D14" : categoryBg(cat), color: cat === "All" ? "#FFF8EE" : "#221D14" }}
-          >
-            {cat}
-          </span>
-        ))}
-      </div>
-
-      {/* Book list */}
-      <div className="flex flex-col gap-14">
-        {books.map((book) => (
-          <div
-            key={book.slug}
-            className="bg-card border-2 border-border rounded-[24px] p-7 md:p-9 shadow-card"
-          >
-            <BookRecommendationLockup book={book} />
-          </div>
-        ))}
-      </div>
+      {/* Category filters + book list */}
+      <BookShelf books={books} />
     </div>
   );
 }

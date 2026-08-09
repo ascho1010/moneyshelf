@@ -86,12 +86,19 @@ export default function RecommenderResultPage({
           </div>
 
           <div className="min-w-0">
-            <span
-              className="inline-block border-2 border-border rounded-full text-[11px] font-bold px-2.5 py-1 mb-3"
-              style={{ backgroundColor: categoryBg(book.category) }}
-            >
-              {book.category}
-            </span>
+            <div className="flex flex-wrap gap-2 mb-3">
+              <span
+                className="inline-block border-2 border-border rounded-full text-[11px] font-bold px-2.5 py-1"
+                style={{ backgroundColor: categoryBg(book.category) }}
+              >
+                {book.category}
+              </span>
+              {book.editorFavorite && (
+                <span className="inline-block bg-yellow border-2 border-border rounded-full text-[11px] font-bold px-2.5 py-1">
+                  <span aria-hidden="true">★ </span>Editor favorite
+                </span>
+              )}
+            </div>
             <h2 className="font-display text-2xl font-extrabold tracking-tight text-ink leading-tight mb-1">
               {book.title}
             </h2>

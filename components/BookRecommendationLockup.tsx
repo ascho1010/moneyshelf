@@ -35,6 +35,11 @@ export default function BookRecommendationLockup({
             >
               {book.category}
             </span>
+            {book.editorFavorite && (
+              <span className="inline-block bg-yellow border-2 border-border rounded-full text-[11px] font-bold px-2.5 py-1">
+                <span aria-hidden="true">★ </span>Editor favorite
+              </span>
+            )}
             {book.matchReasons?.map((reason) => (
               <span
                 key={reason}
