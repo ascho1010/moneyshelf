@@ -1,4 +1,5 @@
 import { books, articles } from "@/lib/data";
+import { ACTIVE_CATEGORIES } from "@/lib/categories";
 import { SITE_URL } from "@/lib/site";
 import type { MetadataRoute } from "next";
 
@@ -15,6 +16,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/about`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.5 },
   ];
 
+  // Topic landing pages — high priority; these target the head terms.
+  const categoryPages: MetadataRoute.Sitemap = ACTIVE_CATEGORIES.map((c) => ({
+    url: `${SITE_URL}/books/category/${c.slug}`,
+    lastModified: BUILD_DATE,
+    changeFrequency: "weekly",
+    priority: 0.9,
+  }));
+
   const bookPages: MetadataRoute.Sitemap = books.map((book) => ({
     url: `${SITE_URL}/books/${book.slug}`,
     lastModified: BUILD_DATE,
@@ -29,5 +38,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticPages, ...bookPages, ...articlePages];
+  return [...staticPages, ...categoryPages, ...bookPages, ...articlePages];
 }

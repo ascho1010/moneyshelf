@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { categoryBg, categoryTint } from "@/lib/ui";
 import { SITE_URL, SITE_NAME, absoluteUrl, bookPageTitle } from "@/lib/site";
 import AffiliateLink from "@/components/AffiliateLink";
+import { ACTIVE_CATEGORIES } from "@/lib/categories";
 import type { Metadata } from "next";
 
 export async function generateMetadata({
@@ -50,6 +51,7 @@ export default function BookPage({ params }: { params: { slug: string } }) {
   const relatedArticles = articles.filter((a) => a.bookSlugs.includes(book.slug));
 
   const bookUrl = absoluteUrl(`/books/${book.slug}`);
+  const categorySlug = ACTIVE_CATEGORIES.find((c) => c.name === book.category)?.slug;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -139,12 +141,22 @@ export default function BookPage({ params }: { params: { slug: string } }) {
         {/* Book info */}
         <div className="md:col-span-2">
           <div className="flex flex-wrap gap-2 mb-4">
-            <span
-              className="inline-block border-2 border-border rounded-full text-[11px] font-bold px-3 py-1"
-              style={{ backgroundColor: categoryBg(book.category) }}
-            >
-              {book.category}
-            </span>
+            {categorySlug ? (
+              <Link
+                href={`/books/category/${categorySlug}`}
+                className="inline-block border-2 border-border rounded-full text-[11px] font-bold px-3 py-1 hover:opacity-80 transition-opacity"
+                style={{ backgroundColor: categoryBg(book.category) }}
+              >
+                {book.category}
+              </Link>
+            ) : (
+              <span
+                className="inline-block border-2 border-border rounded-full text-[11px] font-bold px-3 py-1"
+                style={{ backgroundColor: categoryBg(book.category) }}
+              >
+                {book.category}
+              </span>
+            )}
             {book.editorFavorite && (
               <span className="inline-block bg-yellow border-2 border-border rounded-full text-[11px] font-bold px-3 py-1">
                 <span aria-hidden="true">★ </span>Editor favorite
